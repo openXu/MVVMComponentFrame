@@ -2,10 +2,7 @@ ext {
 
     lifecycle_version = "2.2.0"
 
-    dependencies = [
-        /**★★★请在下面配置应用需要的三方框架依赖项*/
-        //动画库
-        "nineoldandroids" : 'com.nineoldandroids:library:2.4.0',
+    libdependencies = [
         /**★★★下面的依赖是框架自带的依赖，请不要删除*/
         //===library_core=================================
         'appcompat'           : "androidx.appcompat:appcompat:1.1.0",

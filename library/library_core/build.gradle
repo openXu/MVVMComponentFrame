@@ -27,37 +27,37 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //api 'com.android.support:appcompat-v7:28.0.0'
     /**AndroidX*/
-    api rootProject.ext.dependencies["appcompat"]
-    api rootProject.ext.dependencies["viewmodel"]
-    api rootProject.ext.dependencies["livedata"]
-    api rootProject.ext.dependencies["lifecycle"]
-    api rootProject.ext.dependencies["multidex"]
-    api rootProject.ext.dependencies["constraintlayout"]
-    api rootProject.ext.dependencies["recyclerview"]
-    api rootProject.ext.dependencies["recyclerview-selection"]
+    api rootProject.ext.libdependencies["appcompat"]
+    api rootProject.ext.libdependencies["viewmodel"]
+    api rootProject.ext.libdependencies["livedata"]
+    api rootProject.ext.libdependencies["lifecycle"]
+    api rootProject.ext.libdependencies["multidex"]
+    api rootProject.ext.libdependencies["constraintlayout"]
+    api rootProject.ext.libdependencies["recyclerview"]
+    api rootProject.ext.libdependencies["recyclerview-selection"]
     /**三方库*/
     //SmartRefreshLayout 刷新1.1.0 androidx 版本
-    api rootProject.ext.dependencies["SmartRefreshHeader"]
-    api(rootProject.ext.dependencies["SmartRefreshLayout"]) {
+    api rootProject.ext.libdependencies["SmartRefreshHeader"]
+    api(rootProject.ext.libdependencies["SmartRefreshLayout"]) {
         exclude group: 'androidx.lifecycle', module: 'lifecycle-runtime'
     }
     //okhttp+retrofit
-    api rootProject.ext.dependencies["logging-interceptor"]
-    api rootProject.ext.dependencies["retrofit"]
-    api rootProject.ext.dependencies["adapter-rxjava"]
-    api rootProject.ext.dependencies["converter"]
-    api rootProject.ext.dependencies["rxjava"]
-    api rootProject.ext.dependencies["rxandroid"]
-    api rootProject.ext.dependencies["autodispose"]
+    api rootProject.ext.libdependencies["logging-interceptor"]
+    api rootProject.ext.libdependencies["retrofit"]
+    api rootProject.ext.libdependencies["adapter-rxjava"]
+    api rootProject.ext.libdependencies["converter"]
+    api rootProject.ext.libdependencies["rxjava"]
+    api rootProject.ext.libdependencies["rxandroid"]
+    api rootProject.ext.libdependencies["autodispose"]
     //阿里路由框架
-    api rootProject.ext.dependencies["arouter-api"]
+    api rootProject.ext.libdependencies["arouter-api"]
     //每个组件中依赖阿里路由编译框架
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    annotationProcessor rootProject.ext.libdependencies["arouter-compiler"]
     //二维码
-    api rootProject.ext.dependencies["zxing"]
-    api rootProject.ext.dependencies["gson"]
-    api rootProject.ext.dependencies["glide"]
-    api rootProject.ext.dependencies["rxbus"]
+    api rootProject.ext.libdependencies["zxing"]
+    api rootProject.ext.libdependencies["gson"]
+    api rootProject.ext.libdependencies["glide"]
+    api rootProject.ext.libdependencies["rxbus"]
 
 }
 
