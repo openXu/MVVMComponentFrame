@@ -1,11 +1,19 @@
 
 # MVVM模块化快速开发框架说明
 
+[🔜 快速开始](https://github.com/openXu/MVVMComponentFrame/blob/master/doc/README_USER.md)
+
 ## 1. 框架优势
+
+- 基于AndroidX
+
+AndroidX是Android发展的趋势，google已经退出几年了，很多公司已经将项目迁移到AndroidX
+
+
 
 ## 2. 框架概述
 
-![](a_image/架构.png)
+![](https://github.com/openXu/MVVMComponentFrame/blob/master/a_image/%E6%9E%B6%E6%9E%84.png)
 
 该框架将项目拆分为多个模块，根据模块性质可对其分层，从下到上分别为**基础库层**、**组件层**、**基础层**、**模块层**、"模板层"、"应用层"。分层的结构有利于项目模块化管理，使得框架易于扩展和维护，避免因为项目数量和体量的增加导致代码纵横交错不便管理。
 
@@ -152,15 +160,20 @@ dependencies {
 
 ### 4.1 conf_lib.gradle
 
-位于`config`目录下，用于配置依赖的类库和框架统一的android扩展配置，所有module中的`build.gradle`添加依赖应该使用该脚本中的依赖，以及android配置，方便版本管理
+位于`config`目录下，用于配置框架依赖的类库和框架统一的android扩展配置，所有module中的android配置都应该使用如下统一配置，方便版本管理
+```xml
+android {
+    rootProject.ext.setAndroidConfig android
+}
+```
 
 ### 4.2 conf_app.gradle
 
-位于`config`目录下，用于配置Android项目的包名、版本号以及一些`BuildConfig`常量。
+位于`config`目录下，用于配置项目需要额外依赖的开源库，以及项目的包名、版本号和`BuildConfig`常量。
 
-由于该框架设计允许在一个工程下同时开发多个项目，所以`conf_app.gradle`中可以配置多个项目，通过其中的`appTypeStr = "TYPE_ALONG"`配置切换当前想要运行的项目。当开发一个新的项目时，请在`library\library_core\src\main\java\com\fpc\core\config\AppTypes.java`中添加该项目的枚举类型。
+由于该框架设计允许在一个工程下同时开发多个项目，所以`conf_app.gradle`中可以配置多个项目，通过其中的`appTypeStr = "TYPE_XXX"`配置切换当前想要运行的项目。当开发一个新的项目时，请在`library\library_core\src\main\java\com\fpc\core\config\AppTypes.java`中添加该项目的枚举类型。
 
-如果在某个module编码中需要判断当前运行的项目版本(该模块可能被多个项目共用，而有一部分内容在多个项目中作区别处理)，请使用`if(AppTypes.XXX == AppTypes.valueOf(AppConfig.appType))`
+如果在某个module编码中需要判断当前运行的项目版本(该模块可能被多个项目共用，而有一部分内容在多个项目中作区别处理)，请使用`if(AppTypes.TYPE_XXX == AppTypes.valueOf(AppConfig.appType))`
 
 ### 4.3 其他gradle脚本
 
