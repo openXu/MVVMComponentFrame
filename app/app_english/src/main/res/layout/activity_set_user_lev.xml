@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="等级" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleView" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <!-- 用户等级 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="#aa000000"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dip"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="还需"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/tv_next_jy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="45"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="经验值升级"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dip"
+                    android:paddingRight="15dip" >
+
+                    <TextView
+                        android:id="@+id/tv_pro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:id="@+id/tv_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="30"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+                </RelativeLayout>
+
+                <com.openxu.view.LineProgressBar
+                    android:id="@+id/linebar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="15dip"
+                    android:layout_marginRight="15dip"
+                    android:layout_marginTop="5dip" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5px"
+                    android:layout_marginTop="10dip"
+                    android:background="#33a1a3a6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dip"
+                        android:paddingTop="8dip" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="等级"
+                            android:textColor="@color/text_color_gay1"
+                            android:textSize="@dimen/text_size_13" />
+
+                        <TextView
+                            android:id="@+id/tv_lev"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dip"
+                            android:text="LV.1"
+                            android:textColor="@color/text_color_gay1"
+                            android:textSize="@dimen/text_size_14" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5px"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="5dip"
+                        android:layout_marginTop="5dip"
+                        android:background="#33a1a3a6" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="头衔"
+                            android:textColor="@color/text_color_gay1"
+                            android:textSize="@dimen/text_size_13" />
+
+                        <TextView
+                            android:id="@+id/tv_tx"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dip"
+                            android:text="幼儿园"
+                            android:textColor="@color/text_color_gay1"
+                            android:textSize="@dimen/text_size_14" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5px"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="5dip"
+                        android:layout_marginTop="5dip"
+                        android:background="#33a1a3a6" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="经验值"
+                            android:textColor="@color/text_color_gay1"
+                            android:textSize="@dimen/text_size_13" />
+
+                        <TextView
+                            android:id="@+id/tv_jyz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dip"
+                            android:text="LV.1"
+                            android:textColor="@color/text_color_gay1"
+                            android:textSize="@dimen/text_size_14" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#aa000000"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginTop="10dip"
+                    android:text="如何获得经验 ?"
+                    android:textColor="@color/text_color_gay1"
+                    android:textSize="@dimen/text_size_14" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dip"
+                        android:text="行为"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dip"
+                        android:text="经验奖励"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5px"
+                    android:layout_marginTop="5dip"
+                    android:background="#33a1a3a6" />
+
+                <ListView
+                    android:id="@+id/lv_how"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:divider="@null"
+                   android:clickable="false"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="#aa000000"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginTop="10dip"
+                    android:text="经验值、等级、头衔关系"
+                    android:textColor="@color/text_color_gay1"
+                    android:textSize="@dimen/text_size_14" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="勋章"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="头衔"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="等级"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="经验值"
+                        android:textColor="@color/text_color_gay1"
+                        android:textSize="@dimen/text_size_13" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5px"
+                    android:layout_marginTop="5dip"
+                    android:background="#33a1a3a6" />
+
+                <ListView
+                    android:id="@+id/lv_lev_gx"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:divider="@null"
+                    android:clickable="false"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

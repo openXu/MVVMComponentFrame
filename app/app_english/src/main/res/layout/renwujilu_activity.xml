@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_hight"
+            openxu:isBackShow="true"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="false"
+            openxu:titleStr="背词记录" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ListView
+                android:id="@+id/pull_list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="25dip"
+                android:layout_marginRight="20dip"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@android:color/transparent"
+                android:fadingEdge="none"
+                android:fastScrollEnabled="false"
+                android:footerDividersEnabled="false"
+                android:headerDividersEnabled="false"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none"
+                android:smoothScrollbar="true" />
+
+            <TextView
+                android:id="@+id/tv_null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:lineSpacingExtra="10dip"
+                android:text="单词空空哒( ˇˍˇ )\n快去背单词吧!"
+                android:textColor="@color/text_color_gay"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+     android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="设置" />
+
+    <RelativeLayout
+        android:id="@+id/rl_userset"
+        android:layout_width="fill_parent"
+        android:layout_height="210.0dip"
+        android:paddingLeft="13.5dip"
+        android:paddingRight="13.5dip"
+        android:paddingTop="13.5dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="60dip"
+                android:layout_height="60dip"
+                android:src="@drawable/open_user_icon_def" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15.0dip"
+                android:text="name" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:gravity="right|center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_level"
+                    android:layout_width="91.0dip"
+                    android:layout_height="35.0dip"
+                    android:src="@drawable/ic_launcher"
+                    android:layout_marginRight="3.0dip" />
+
+                <TextView
+                    android:id="@+id/tv_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="每日学习新词量"
+                    android:textSize="@dimen/text_size_15" />
+
+                <EditText
+                    android:id="@+id/et_renwu_num"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:gravity="center"
+                    android:background="@drawable/edit_short_bg"
+                    android:inputType="numberSigned"
+                    android:minWidth="40dp"
+                    android:text="20"
+                    android:textSize="@dimen/text_size_15" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="单词播放速度(s)"
+                    android:textSize="@dimen/text_size_15" />
+
+                <EditText
+                    android:id="@+id/et_play_sb"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:gravity="center"
+                    android:background="@drawable/edit_short_bg"
+                    android:inputType="numberSigned"
+                    android:minWidth="40dp"
+                    android:text="20"
+                    android:textSize="@dimen/text_size_15" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="记词模式"
+                    android:textSize="@dimen/text_size_15" />
+
+                <RelativeLayout
+                    android:id="@+id/spinneridjc"
+                    android:layout_width="100dip"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/preference_single_item"
+                    android:clickable="true" >
+
+                    <TextView
+                        android:id="@+id/tv_jcms"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size_15" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white" >
+
+                <TextView
+                    android:id="@+id/tv_fx_lable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="复习模式"
+                    android:textSize="@dimen/text_size_15" />
+
+                <RelativeLayout
+                    android:id="@+id/spinneridfx"
+                    android:layout_width="150dip"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/preference_single_item"
+                    android:clickable="true" >
+
+                    <TextView
+                        android:id="@+id/tv_fxms"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size_15" />
+                </RelativeLayout>
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rl_fx_num"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="每日复习词汇量"
+                    android:textSize="@dimen/text_size_15" />
+
+                <EditText
+                    android:id="@+id/et_fx_num"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:gravity="center"
+                    android:background="@drawable/edit_short_bg"
+                    android:inputType="numberSigned"
+                    android:minWidth="40dp"
+                    android:text="20"
+                    android:textSize="@dimen/text_size_15" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_beifen"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/tv_lable_bef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="数据备份"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dip"
+                    android:layout_toRightOf="@+id/tv_lable_bef"
+                    android:text="(备份词库及记录)"
+                    android:textColor="@color/text_color_gay"
+                    android:textSize="@dimen/text_size_15" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_huanyuan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white"
+                android:clickable="true" >
+
+                <TextView
+                    android:id="@+id/tv_lable_hy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dip"
+                    android:text="还原数据"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dip"
+                    android:layout_toRightOf="@+id/tv_lable_hy"
+                    android:text="(还原备份过的数据)"
+                    android:textColor="@color/text_color_gay"
+                    android:textSize="@dimen/text_size_15" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_clearad"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" >
+
+                    <TextView
+                        android:id="@+id/tv_lablead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dip"
+                        android:text="去除广告"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/tv_lablead1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dip"
+                        android:layout_toRightOf="@+id/tv_lablead"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_lablead"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginTop="3dip"
+                        android:textSize="@dimen/text_size_11" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_ad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dip"
+                    android:minWidth="40dp"
+                    android:textColor="#ff0000"
+                    android:textSize="@dimen/text_size_13" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_women"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_item_hight"
+                android:layout_marginTop="1sp"
+                android:background="@color/color_white"
+                android:clickable="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:text="关于我们"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

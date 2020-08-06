@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        android:paddingTop="50dp" >
+
+        <RelativeLayout
+            android:id="@+id/rl_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dip"
+            android:paddingBottom="20dip"
+            android:paddingTop="20dip" >
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:src="@drawable/open_user_icon_def" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="25dip"
+                android:layout_toRightOf="@+id/iv_icon"
+                android:text="登录/注册"
+                android:textSize="@dimen/text_size_17" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/line_login"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5sp"
+            android:layout_below="@+id/rl_login"
+            android:layout_marginRight="30dip"
+            android:src="#f6f5ec" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_bottom"
+            android:layout_below="@+id/line_login"
+            android:layout_marginTop="30dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/ll_bdc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="18dip"
+                    android:paddingTop="18dip" >
+
+                    <ImageView
+                        android:layout_width="@dimen/menu_icon_size1"
+                        android:layout_height="@dimen/menu_icon_size1"
+                        android:layout_marginLeft="50dip"
+                        android:src="@drawable/open_main_menu_bdc" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/tv_menu_bdc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="正在背诵"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <TextView
+                            android:id="@+id/tv_lable_bdc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dip"
+                            android:text="(高中词汇精选)"
+                            android:textSize="@dimen/text_size_12" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_book"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="18dip"
+                    android:paddingTop="18dip" >
+
+                    <ImageView
+                        android:layout_width="@dimen/menu_icon_size1"
+                        android:layout_height="@dimen/menu_icon_size1"
+                        android:layout_marginLeft="50dip"
+                        android:src="@drawable/open_main_menu_book" />
+
+                    <TextView
+                        android:id="@+id/tv_menu_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:text="我的词书"
+                        android:textSize="@dimen/text_size_16" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_dcb"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="18dip"
+                    android:paddingTop="18dip" >
+
+                    <ImageView
+                        android:layout_width="@dimen/menu_icon_size1"
+                        android:layout_height="@dimen/menu_icon_size1"
+                        android:layout_marginLeft="50dip"
+                        android:src="@drawable/open_main_menu_dcb" />
+
+                    <TextView
+                        android:id="@+id/tv_menu_dcb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:text="单词本"
+                        android:textSize="@dimen/text_size_16" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_hf"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="18dip"
+                    android:paddingTop="18dip" >
+
+                    <ImageView
+                        android:layout_width="@dimen/menu_icon_size1"
+                        android:layout_height="@dimen/menu_icon_size1"
+                        android:layout_marginLeft="50dip"
+                        android:src="@drawable/open_main_menu_hf" />
+
+                    <TextView
+                        android:id="@+id/tv_menu_hf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:text="皮肤"
+                        android:textSize="@dimen/text_size_16" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_set"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="18dip"
+                    android:paddingTop="18dip" >
+
+                    <ImageView
+                        android:layout_width="@dimen/menu_icon_size1"
+                        android:layout_height="@dimen/menu_icon_size1"
+                        android:layout_marginLeft="50dip"
+                        android:src="@drawable/open_main_menu_setting" />
+
+                    <TextView
+                        android:id="@+id/tv_menu_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:text="设置"
+                        android:textSize="@dimen/text_size_16" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</LinearLayout>

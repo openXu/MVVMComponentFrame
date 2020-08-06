@@ -1,0 +1,28 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pf1_search_history"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="5dip"
+        android:paddingBottom="5dip"
+        android:paddingLeft="12dip"
+        android:paddingRight="12dip"
+        android:paddingTop="5dip"
+        android:text="history"
+        android:textSize="@dimen/text_size_17"
+        android:textColor="#aa000000"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="13dip"
+        android:layout_height="13dip"
+        android:layout_gravity="right|top"
+        android:src="@drawable/img_cancel" />
+
+</FrameLayout>

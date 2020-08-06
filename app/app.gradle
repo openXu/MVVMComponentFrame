@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+
+android {
+    //android相关配置
+    rootProject.ext.setAndroidConfig android
+    //App包名、版本配置，此处不应改动，请在conf_app.gradle脚本中配置
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    /*signingConfigs {
+        release {
+            keyAlias 'zs119sign'
+            keyPassword 'xxxxx'
+            storeFile file('../../keystory/zs119_key.jks')
+            storePassword 'xxxxxx'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        debug {
+            keyAlias 'zs119sign'
+            keyPassword 'xxxxx'
+            storeFile file('../../keystory/zs119_key.jks')
+            storePassword 'xxxxxx'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }*/
+
+  /*  buildTypes {
+        release {
+            println "配置混淆签名--release"
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            println "配置混淆签名--debug"
+            signingConfig signingConfigs.debug
+            minifyEnabled false   //前期测试包混淆方便问题定位
+//            shrinkResources true
+//            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../../library/library_base/proguard-rules.pro'
+        }
+    }*/
+
+    /*
+    //自定义apk输出路径和文件名
+    applicationVariants.all { variant ->
+        variant.outputs.all {output->
+//            if("release".equalsIgnoreCase(variant.buildType.name)){
+                // 自定义输出路径 D:\apkrelease\hb_wymonitor\debug or release
+                File dirFile = file(variant.buildType.name)    // Using a relative path 相对路径
+                // apk名称  hbm_v13_1.2.5_debug.apk
+//            def date = new Date().format('yyMMddHHmmss')
+                String type = rootProject.ext.appType.replaceAll("\"", "").replaceAll("TYPE_", "")
+                String apkName
+                if(variant.productFlavors.size()==0){
+                    apkName = "${type}_v${variant.versionCode}_${variant.versionName}_${variant.buildType.name}.apk"
+                }else if(variant.productFlavors.size()==1){   //只设置了构建渠道
+                    apkName = "${type}_v${variant.versionCode}_${variant.versionName}_" +
+                            "${variant.productFlavors[0].name}_${variant.buildType.name}.apk"
+                }else if(variant.productFlavors.size()==2){   //设置了维度 和 构建渠道
+                    apkName = "${type}_v${variant.versionCode}_${variant.versionName}_" +
+                            "${variant.productFlavors[0].name}_${variant.productFlavors[1].name}_${variant.buildType.name}.apk"
+                }
+                outputDirList.add(dirFile)
+                outputFileNameList.add(apkName)
+                println("apk输出目录："+dirFile)
+                println("apks名称："+apkName)
+                output.getPackageApplication().outputDirectory = dirFile
+                outputFileName = apkName
+//            }
+        }
+    }
+*/
+
+    //打包配置
+    //解决错误：More than one file was found with OS independent path 'META-INF/proguard/coroutines.pro'
+    //1、pickFirsts:当出现重复文件，会使用第一个匹配的文件打包进入apk
+    //2、merges:当出现重复文件，合并重复的文件打入apk
+    //3、excludes:打包的时候排除匹配的文件
+    packagingOptions {
+        //        pickFirsts = ['META-INF/LICENSE']
+        //这里不要直接=赋值，避免覆盖掉默认值
+        //        merge 'META-INF/LICENSE'
+        //这里不要直接=赋值，避免覆盖掉默认值
+        exclude 'META-INF/proguard/coroutines.pro'
+    }
+
+}
+
+dependencies {
+    //依赖基础库
+    implementation project(':library:library_frame')
+    //每个组件中依赖阿里路由编译框架
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+}
+
+
+

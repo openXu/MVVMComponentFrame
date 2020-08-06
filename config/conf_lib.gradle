@@ -1,0 +1,99 @@
+ext {
+
+    lifecycle_version = "2.2.0"
+
+    dependencies = [
+        /**★★★请在下面配置应用需要的三方框架依赖项*/
+        //动画库
+        "nineoldandroids" : 'com.nineoldandroids:library:2.4.0',
+        /**★★★下面的依赖是框架自带的依赖，请不要删除*/
+        //===library_core=================================
+        'appcompat'           : "androidx.appcompat:appcompat:1.1.0",
+        // ViewModel
+        'viewmodel'           :  "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+        // LiveData
+        'livedata'           :  "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+        // Lifecycles only (without ViewModel or LiveData)
+        'lifecycle'           :  "androidx.lifecycle:lifecycle-runtime:$lifecycle_version",
+        //在搭载 Android 5 之前版本的设备上部署包含多个 dex 文件的应用
+        "multidex"            : 'androidx.multidex:multidex:2.0.1',
+        'constraintlayout'           :   'androidx.constraintlayout:constraintlayout:1.1.3',
+        'recyclerview'            : "androidx.recyclerview:recyclerview:1.1.0",
+        // For control over item selection of both touch and mouse driven selection
+        'recyclerview-selection'            : "androidx.recyclerview:recyclerview-selection:1.1.0-rc01",
+        //SmartRefreshLayout 刷新1.1.0 androidx 版本
+        "SmartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4",
+        "SmartRefreshHeader"  : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-4",
+        //网络框架retrofit+okhttp+rxjava
+        "logging-interceptor" : 'com.squareup.okhttp3:logging-interceptor:3.4.1',
+        "retrofit"            : "com.squareup.retrofit2:retrofit:2.5.0",
+        "converter"           : "com.squareup.retrofit2:converter-gson:2.3.0",   //数据解析器
+        "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",   //网络请求适配器
+        //RxJava
+        'rxjava'           :   'io.reactivex.rxjava3:rxjava:3.0.0',
+        'rxandroid'           :   'io.reactivex.rxjava3:rxandroid:3.0.0',
+        //RxJava内存泄漏
+        "autodispose"         : "com.uber.autodispose:autodispose-android-archcomponents:1.1.0",
+        //ARouter路由
+        "arouter-api"         : "com.alibaba:arouter-api:1.4.1",
+        "arouter-compiler"    : "com.alibaba:arouter-compiler:1.2.2",
+        'gson'           :   'com.google.code.gson:gson:2.8.5',
+        'glide'           :   'com.github.bumptech.glide:glide:4.8.0',
+//        "picasso"             : "com.squareup.picasso:picasso:2.5.2",
+        //EventBus事件发布和订阅框架
+//            "eventbus"            : "org.greenrobot:eventbus:3.0.0",
+        "rxbus"               : 'com.hwangjr.rxbus:rxbus:1.0.6',
+        //二维码
+        "zxing"          : "com.google.zxing:core:3.3.0",
+
+        //权限
+        "AndPermission"       : "com.yanzhenjie.permission:x:2.0.1",
+        //数据库greenDao
+        "greendao"            : "org.greenrobot:greendao:3.2.2",
+        //AndroidAutoSize
+        "autosize"            : "me.jessyan:autosize:1.1.2",
+        //图片压缩
+        "Luban"               : "top.zibin:Luban:1.1.8",
+    ]
+
+    /**通用gradle方法*/
+    /*android基础配置*/
+    setAndroidConfig = {
+        extension ->  //闭包参数extension相当于android对象
+            extension.compileSdkVersion 28
+            extension.buildToolsVersion '28.0.3'
+            extension.defaultConfig {
+                minSdkVersion 21
+                targetSdkVersion 28
+                versionCode 1
+                versionName '1.0.0'
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        includeCompileClasspath = true
+                    }
+                }
+                multiDexEnabled true
+                //阿里路由框架配置
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                        logger.info("阿里路由框架配置："+project.getName())
+                    }
+                }
+            }
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+            //开启Data Binding
+            extension.dataBinding {
+                enabled = true
+            }
+            extension.lintOptions {
+                abortOnError false
+            }
+            //统一资源前缀，规范资源引用 module_xxx
+//    extension.resourcePrefix project.getName()+"_"
+    }
+
+}

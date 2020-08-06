@@ -1,0 +1,135 @@
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:clickable="true" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="详细资料" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleView"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rl_icon"
+            android:layout_width="match_parent"
+            android:layout_height="65dip"
+            android:layout_marginTop="20dip"
+            android:background="@color/color_white" >
+
+            <TextView
+                android:id="@+id/tv_lable_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:text="图像"
+                android:textSize="@dimen/text_size_15" />
+
+            <ImageView
+                android:id="@+id/iv_set_avator"
+                android:layout_width="45dip"
+                android:layout_height="45dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dip"
+                android:src="@drawable/open_user_icon_def" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_hight"
+            android:layout_marginTop="10dip"
+            android:background="@color/color_white" >
+
+            <TextView
+                android:id="@+id/tv_lable_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:text="昵称"
+                android:textSize="@dimen/text_size_15" />
+
+            <TextView
+                android:id="@+id/tv_set_nick"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="25dip"
+                android:layout_toRightOf="@+id/tv_lable_name"
+                android:background="@null"
+                android:gravity="center_vertical|right"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_color_gay"
+                android:textSize="@dimen/text_size_15" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_hight"
+            android:layout_marginTop="10dip"
+            android:background="@color/color_white" >
+
+            <TextView
+                android:id="@+id/tv_lable_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:text="性别"
+                android:textSize="@dimen/text_size_15" />
+
+            <TextView
+                android:id="@+id/tv_set_gender"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="25dip"
+                android:layout_toRightOf="@+id/tv_lable_sex"
+                android:gravity="center_vertical|right"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_color_gay"
+                android:textSize="@dimen/text_size_15" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_add_friend"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/pf1_btn_selector"
+            android:text="@string/add_friend"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_chat"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/pf1_btn_selector"
+            android:text="@string/chat"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:clickable="true" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="关于好记单词" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleView"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dip"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dip"
+            android:layout_marginTop="15dip"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_size_16" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3sp"
+                    android:background="@color/sub_line" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:background="@color/color_white"
+                    android:clickable="true"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:id="@+id/tv_lable_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="检测更新"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <ImageView
+                        android:id="@+id/iv_new_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_lable_new"
+                        android:layout_marginLeft="10dip"
+                        android:layout_toRightOf="@+id/tv_lable_new"
+                        android:background="@drawable/msg_tips"
+                        android:gravity="center"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tv_new_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3sp"
+                    android:background="@color/sub_line" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_fk"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:background="@color/color_white"
+                    android:clickable="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_fk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dip"
+                        android:text="意见反馈"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <ImageView
+                        android:id="@+id/iv_recent_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/tv_fk"
+                        android:layout_marginLeft="10dip"
+                        android:layout_toRightOf="@+id/tv_fk"
+                        android:background="@drawable/msg_tips"
+                        android:gravity="center"
+                        android:visibility="visible" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3sp"
+                    android:background="@color/sub_line" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:background="@color/color_white"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dip"
+                        android:text="帮助"
+                        android:textSize="@dimen/text_size_16" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:background="@color/color_white"
+                    android:clickable="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dip"
+                        android:text="分享应用"
+                        android:textSize="@dimen/text_size_16" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3sp"
+                    android:background="@color/sub_line" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dip"
+        android:layout_marginTop="30dip"
+        android:gravity="center" 
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#bb000000"
+            android:textIsSelectable="true"
+            android:text="用户反馈群: 185694885"
+            android:textSize="@dimen/text_size_14" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="下载地址: http://openxuhjword.apps.cn/"
+            android:layout_marginTop="10dip"
+            android:textIsSelectable="true"
+            android:textColor="#bb000000"
+            android:textSize="@dimen/text_size_14" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dip"
+            android:text="Copyright © openXu"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/text_size_13" />
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

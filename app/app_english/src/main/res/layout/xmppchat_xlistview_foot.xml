@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom" >
+
+    <RelativeLayout
+        android:id="@+id/xlistview_footer_content"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp" >
+
+        <ImageView
+            android:id="@+id/iv_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="5dip"
+            android:src="@drawable/open_list_lodding" />
+    </RelativeLayout>
+
+</LinearLayout>

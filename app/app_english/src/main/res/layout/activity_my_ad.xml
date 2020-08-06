@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:clickable="true" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="发现" />
+
+    <TextView
+        android:id="@+id/tv_no"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:lineSpacingExtra="10dip"
+        android:clickable="true"
+        android:text="木有加载粗来\n什么都没发现(ㄒoㄒ)~~\n戳我试试"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/text_size_18" />
+
+    <ListView
+        android:id="@+id/lv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleView"
+        android:divider="@null" />
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

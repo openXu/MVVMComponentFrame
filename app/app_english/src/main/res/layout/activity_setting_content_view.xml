@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="每日学习新词量"
+            android:textSize="@dimen/text_size_15" />
+
+        <EditText
+            android:id="@+id/et_renwu_num"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/edit_short_bg"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:minWidth="40dp"
+            android:text="20"
+            android:textSize="@dimen/text_size_15" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="单词播放速度(s)"
+            android:textSize="@dimen/text_size_15" />
+
+        <EditText
+            android:id="@+id/et_play_sb"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/edit_short_bg"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:minWidth="40dp"
+            android:text="20"
+            android:textSize="@dimen/text_size_15" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="记词模式"
+            android:textSize="@dimen/text_size_15" />
+
+        <RelativeLayout
+            android:id="@+id/spinneridjc"
+            android:layout_width="100dip"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/preference_single_item"
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/tv_jcms"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_15" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:id="@+id/tv_fx_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="复习模式"
+            android:textSize="@dimen/text_size_15" />
+
+        <RelativeLayout
+            android:id="@+id/spinneridfx"
+            android:layout_width="150dip"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/preference_single_item"
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/tv_fxms"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_15" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_fx_num"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="每日复习词汇量"
+            android:textSize="@dimen/text_size_15" />
+
+        <EditText
+            android:id="@+id/et_fx_num"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/edit_short_bg"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:minWidth="40dp"
+            android:text="20"
+            android:textSize="@dimen/text_size_15" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="主页显示我的单词本"
+            android:textSize="@dimen/text_size_15" />
+		<ImageView
+            android:id="@+id/iv_showbook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/off"/>
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+    <RelativeLayout
+        android:id="@+id/rl_msg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="消息设置"
+            android:textSize="@dimen/text_size_15" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+    
+
+    <RelativeLayout
+        android:id="@+id/rl_beifen"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white"
+        android:clickable="true" >
+
+        <TextView
+            android:id="@+id/tv_lable_bef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="数据备份"
+            android:textSize="@dimen/text_size_15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@+id/tv_lable_bef"
+            android:text="(备份词库及记录)"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_15" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_huanyuan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white"
+        android:clickable="true" >
+
+        <TextView
+            android:id="@+id/tv_lable_hy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:text="还原数据"
+            android:textSize="@dimen/text_size_15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@+id/tv_lable_hy"
+            android:text="(还原备份过的数据)"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_15" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_clearad"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" >
+
+            <TextView
+                android:id="@+id/tv_lablead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:text="去除广告"
+                android:textSize="@dimen/text_size_15" />
+
+            <TextView
+                android:id="@+id/tv_lablead1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_toRightOf="@+id/tv_lablead"
+                android:textColor="@color/text_color_gay"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/tv_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_lablead"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="3dip"
+                android:textSize="@dimen/text_size_11" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:minWidth="40dp"
+            android:textColor="#ff0000"
+            android:textSize="@dimen/text_size_13" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/line_ad"
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_women"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white"
+        android:clickable="true"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_lable_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:text="关于好记单词"
+            android:textSize="@dimen/text_size_15" />
+
+        <ImageView
+            android:id="@+id/iv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_lable_app"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@+id/tv_lable_app"
+            android:background="@drawable/msg_tips"
+            android:gravity="center"
+            android:visibility="visible" />
+    </RelativeLayout>
+	<ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:background="@color/sub_line" />
+    <LinearLayout
+        android:id="@+id/ll_dbsc"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_hight"
+        android:layout_marginTop="1sp"
+        android:background="@color/color_white"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:visibility="invisible" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:text="上传数据库"
+            android:textSize="@dimen/text_size_15" />
+    </LinearLayout>
+
+</LinearLayout>

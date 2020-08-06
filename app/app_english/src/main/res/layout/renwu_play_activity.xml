@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            openxu:isBackShow="true"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="false"
+            openxu:titleStr="播放单词" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray" >
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="15dip"
+                android:textColor="@color/text_color_gay"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/ll_contrl"
+                android:layout_below="@+id/tv_num"
+                android:layout_marginBottom="30dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip" >
+
+                <LinearLayout
+                    android:id="@+id/ll_lable_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/open_shape_fanyi_bag"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:lineSpacingExtra="10dip"
+                        android:text="今天的单词都背完了,\n棒棒哒!O(∩_∩)O"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_lable_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/open_shape_fanyi_bag"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:lineSpacingExtra="10dip"
+                        android:text="今天还没有记单词(⊙o⊙)哦,\n快行动起来吧!"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/open_shape_fanyi_bag"
+                    android:orientation="vertical"
+                    android:visibility="visible" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dip"
+                        android:layout_marginLeft="20dip"
+                        android:layout_marginRight="20dip"
+                        android:layout_marginTop="20dip" >
+
+                        <TextView
+                            android:id="@+id/tv_english"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_english"
+                            android:layout_marginTop="10dip" >
+
+                            <ImageView
+                                android:id="@+id/iv_local_voice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/open_renwu_say_selector" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_ph"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal" >
+
+                                <ImageView
+                                    android:id="@+id/iv_ph_en"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignTop="@+id/tv_english"
+                                    android:src="@drawable/open_renwu_say_selector" />
+
+                                <TextView
+                                    android:id="@+id/tv_ph_en"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:singleLine="true"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:layout_marginRight="5dip"
+                                    android:singleLine="true"
+                                    android:text="/"
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                                <ImageView
+                                    android:id="@+id/iv_ph_am"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignTop="@+id/tv_english"
+                                    android:src="@drawable/open_renwu_say_selector" />
+
+                                <TextView
+                                    android:id="@+id/tv_ph_am"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:singleLine="true"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_remenber"
+                            android:layout_width="100dip"
+                            android:layout_height="40dip"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignTop="@+id/tv_english"
+                            android:background="@drawable/pf1_btn_selector"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <ImageView
+                                android:id="@+id/iv_remenber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/open_renwu_icon_jzl" />
+
+                            <TextView
+                                android:id="@+id/tv_remenber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dip"
+                                android:text="记住了"
+                                android:textColor="#ff0000"
+                                android:textSize="@dimen/text_size_15" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5sp"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:background="#d7d7d7" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                            <LinearLayout
+                                android:id="@+id/ll_china"
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="20dip"
+                                android:paddingTop="20dip" >
+
+                                <TextView
+                                    android:id="@+id/tv_parts"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_exchange"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:layout_marginTop="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp"
+                                    android:textStyle="italic" />
+
+                                <TextView
+                                    android:id="@+id/tv_sent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:layout_marginTop="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/color_black"
+                                    android:textSize="15sp"
+                                    android:textStyle="italic" />
+                            </LinearLayout>
+                        </ScrollView>
+
+                        <LinearLayout
+                            android:id="@+id/ll_showchina"
+                            android:layout_width="140dip"
+                            android:layout_height="45dip"
+                            android:layout_centerInParent="true"
+                            android:layout_marginBottom="30dip"
+                            android:background="@drawable/pf1_btn_selector"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/open_play_icon_search" />
+
+                            <TextView
+                                android:id="@+id/tv_showchina"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dip"
+                                android:text="显示释义"
+                                android:textColor="#ff0000"
+                                android:textSize="@dimen/text_size_15" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- 广告 -->
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ll_contrl"
+                android:gravity="center_horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/miniAdLinearLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+
+            <!-- 控制按钮 -->
+
+            <LinearLayout
+                android:id="@+id/ll_contrl"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentBottom="true"
+                android:background="#ffffff"
+                android:gravity="center_vertical" >
+
+                <LinearLayout
+                    android:id="@+id/ll_pre"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/open_play_previous_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:text="上一个"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1sp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginTop="10dip"
+                    android:background="#d7d7d7" />
+
+                <LinearLayout
+                    android:id="@+id/ll_paly"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/iv_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/open_play_selector" />
+
+                    <TextView
+                        android:id="@+id/tv_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:text="播放"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1sp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginTop="10dip"
+                    android:background="#d7d7d7" />
+
+                <LinearLayout
+                    android:id="@+id/ll_next"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/open_play_next_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:text="下一个"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 控制按钮完 -->
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

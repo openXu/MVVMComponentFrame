@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<RelativeLayout
+			android:id="@+id/rootView"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:background="@drawable/pf1_login_bg"
+			android:orientation="vertical" >
+		<ImageView
+				android:layout_width="110dip"
+				android:layout_height="110dip"
+				android:layout_marginTop="80dip"
+				android:layout_centerHorizontal="true"
+				android:src="@mipmap/ic_launcher"/>
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:textSize="23sp"
+				android:textStyle="italic"
+				android:textColor="#ffffff"
+				android:text="欢迎使用好记单词" />
+	</RelativeLayout>
+
+</layout>

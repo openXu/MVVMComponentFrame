@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xdj="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+
+    <!-- 扫描取景框 -->
+    <!--<com.fzy.zxing.view.QrcodefinderView-->
+    <!--android:id="@+id/viewfinder_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+
+
+    <!--&lt;!&ndash; xdj:qr_hint="将二维码/条形码置于框内即自动扫描"
+        xdj:qr_errorHint="请允许访问摄像头后重试"
+    &ndash;&gt;-->
+    <com.openxu.core.zxing.xuedaojie.qrcodelib.view.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xdj:qr_angleColor="@color/color_main_orange"
+        xdj:qr_offsetX="20"
+        xdj:qr_offsetY="40"
+        xdj:qr_showPossiblePoint="false"
+        xdj:qr_textErrorHintColor="@android:color/white"
+        xdj:qr_textHintColor="@android:color/darker_gray" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#db4527">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dip">
+
+            <ImageView
+                android:id="@+id/capture_imageview_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:src="@mipmap/core_icon_page_back" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="扫描"
+                android:textColor="#ffffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvLocalScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="15dip"
+                android:text="选择图片"
+                android:textColor="#ffffffff"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/textNotice0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/activity_sides_margin"
+            android:layout_marginRight="@dimen/activity_sides_margin"
+            android:layout_marginBottom="130dp"
+            android:text="将二维码/条形码放入取景框内即可自动扫描"
+            android:textColor="#d5d7df"
+            android:textSize="@dimen/text_size_level_def" />
+
+        <ImageView
+            android:id="@+id/iv_splash"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:src="@mipmap/qrcode_icon_splash_down" />
+
+        <TextView
+            android:id="@+id/textNotice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="扫码后，您将成为消防管理团队中的一员"
+            android:textColor="#d5d7df" />
+
+        <TextView
+            android:id="@+id/textNotice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/textNotice2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="7dp"
+            android:text="请向您的主管索要二维码"
+            android:textColor="#db4527"
+            android:textSize="17dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

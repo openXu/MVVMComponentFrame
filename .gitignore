@@ -1,0 +1,17 @@
+.DS_Store
+*.iml
+*.apk
+*.ap_
+*.dex
+*.class
+class_files.txt
+.gradle
+/local.properties
+/.idea
+build/
+/build
+debug/
+release/
+/captures
+.externalNativeBuild
+

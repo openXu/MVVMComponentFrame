@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data >
+        <variable name="user" type="com.openxu.bean.User"/>
+        <variable name="vm" type="com.openxu.mvvm.LoginViewModel"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.openxu.core.view.TitleLayout
+            android:id="@id/titleLayout"
+            style="@style/TitleDefStyle"
+            app:textcenter="@={user.userName}"/>
+
+                  <!--app:textcenter="登录"/>-->
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/activity_sides_margin"
+            android:text="@={user.userName}"
+            android:hint="请输入用户名"/>
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/activity_sides_margin"
+            android:hint="请输入密码"/>
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/btn_red"
+            android:layout_marginTop="20dp"
+            android:text="登录"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/text_style_def"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@{user.color}"
+			android:textSize="@{user.size}"
+            android:text="@{user.userName}"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{user.imageUrl}"/>
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
+</layout>

@@ -1,0 +1,54 @@
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:clickable="true" >
+
+    <LinearLayout
+        android:id="@+id/ll_loding"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/iv_loding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/open_list_lodding" />
+
+        <TextView
+            android:id="@+id/tv_loding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:text="正在加载..."
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="词库" />
+
+    <com.openxu.view.XlistView.XListView
+        android:id="@+id/lv_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/titleView"
+        android:background="@color/color_white"
+        android:divider="@null"
+        android:listSelector="@drawable/pf1_item_selector"
+        android:transcriptMode="normal" />
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

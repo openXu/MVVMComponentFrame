@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="error" type="String" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.openxu.core.view.TitleLayout
+            android:id="@id/titleLayout"
+            style="@style/TitleDefStyle"
+            app:iconBack="@null"
+            app:textcenter="错误提示"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/core_icon_crash_error"/>
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                style="@style/text_style_mid"
+                android:text="抱歉，应用程序遇到一点小问题"/>
+            <TextView
+                android:id="@+id/tv_restart"
+                style="@style/btn_green"
+                android:text="重新启动"/>
+            <TextView
+                android:id="@+id/tv_close"
+                style="@style/btn_red"
+                android:layout_marginTop="10dp"
+                android:text="关闭应用"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FDFBE9"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            openxu:isBackShow="true"
+            openxu:backIcon = "@drawable/open_title_back"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="true"
+            openxu:menuIcon="@drawable/open_title_add"
+            openxu:titleStr="单词本" />
+
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="100dip"
+            android:text="还没有单词本哦，点击右上角按钮添加去吧~"
+            android:textColor="#7E5E35"
+            android:textSize="@dimen/text_size_16" />
+
+        <ListView
+            android:id="@+id/lv_booklist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="15dip"
+            android:background="#FDFBE9"
+            android:divider="@null" />
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

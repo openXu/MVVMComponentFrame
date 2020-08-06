@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootView"
+    android:background="#44000000"
+    android:gravity="center"
+    android:paddingLeft="60dip"
+    android:paddingRight="60dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@color/color_white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/pf_item_size"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dip"
+                android:text="将 "
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size_15" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/pf_item_size"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size_19" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/pf_item_size"
+                android:gravity="center_vertical"
+                android:text=" 添加到:"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size_15" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.7sp"
+            android:layout_marginLeft="2dip"
+            android:layout_marginRight="2dip"
+            android:src="@color/sub_line" />
+
+        <ListView
+            android:id="@+id/lv_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginTop="5dip"
+            android:divider="@null" />
+
+        <ImageView
+            android:id="@+id/iv_line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.7sp"
+            android:layout_marginLeft="2dip"
+            android:layout_marginRight="2dip"
+            android:src="@color/sub_line" />
+
+        <TextView
+            android:id="@+id/tv_cancle"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#99000000"
+            android:textSize="@dimen/text_size_15" />
+    </LinearLayout>
+
+</LinearLayout>

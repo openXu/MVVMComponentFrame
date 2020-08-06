@@ -1,0 +1,13 @@
+/*模块（module_xxx）通用gradle脚本*/
+apply plugin: 'com.android.library'
+android {
+    rootProject.ext.setAndroidConfig android
+}
+
+dependencies {
+    //依赖基础库
+    implementation project(':library:library_frame')
+    //每个组件中依赖阿里路由编译框架
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+}
+

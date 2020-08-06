@@ -1,0 +1,8 @@
+apply from: '../app.gradle'
+//android {
+//}
+dependencies {
+    implementation rootProject.ext.dependencies["nineoldandroids"]
+
+//    implementation project(':template:template_ldjg')
+}

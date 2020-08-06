@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.openxu.mvvm">
+
+    <application
+            android:name="com.openxu.MyApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name="com.openxu.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.openxu.mvc.LoginActivity"/>
+        <activity android:name="com.openxu.mvp.view.LoginActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".Login2Activity"
+                  android:theme="@style/UpdateDialogStyle">
+        </activity>
+        <activity android:name=".Login3Activity">
+        </activity>
+        <activity android:name="com.openxu.core.base.XLifecycleOwnerActivity"/>
+    </application>
+
+</manifest>

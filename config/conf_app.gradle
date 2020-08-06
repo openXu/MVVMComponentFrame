@@ -1,0 +1,102 @@
+/**
+ * 由于BuildConfig是在gradle评估期生成，而不是在运行期（运行项目），故不能确定当前需要运行的项目是谁，所以需要手动配置项目类型
+ * 由于框架中相关类库需要使用到BuildConfig在此处的配置，决定框架不能打包发布，需要clone到本地使用，这样还能方便维护
+ */
+ext {
+
+    //此处需要手动修改，由于BuildConfig是提前编译生成，不能确定运行的是那个module，所以达不到自动的效果
+//    TYPE_ALONG,     //模块层独立调试  FpcLibsProject\conf.gradle
+//    TYPE_TEST,      //测试工程
+    //TYPE_ENGLISH     单词
+    //TYPE_VEDIO       视频
+
+    //当前运行的app类型 详情请查看：FpcLibsProject\library\library_core\src\main\java\com\fpc\core\config\AppTypes.java
+    appTypeStr = "TYPE_VEDIO"
+    applicationId = getConfigMap(appTypeStr).get("applicationId")
+    versionCode = getConfigMap(appTypeStr).get("versionCode")
+    versionName = getConfigMap(appTypeStr).get("versionName")
+    appId = getConfigMap(appTypeStr).get("appId")
+    appType = getConfigMap(appTypeStr).get("appType")
+    appFileRoot = getConfigMap(appTypeStr).get("appFileRoot")
+    applicationInitClass = getConfigMap(appTypeStr).get("applicationInitClass")
+}
+
+Map<String, String> getConfigMap(String appType) {
+    /* Map<String, Project> childProjects = getChildProjects()
+     println("-所有子："+childProjects)
+     Project appProject = childProjects.get("app")    //project ':app'
+     println("-运行目录为："+appProject)
+     childProjects = appProject.getChildProjects()    //[sinopec_ldjg:project ':app:sinopec_ldjg']
+     println("-运行目录子project为："+childProjects)*/
+
+    switch (appType) {
+        case "TYPE_ALONG":           //模块 or 模板单独调试
+            return getConfigMap_along()
+        case "TYPE_ENGLISH":            //领导监管
+            return getConfigMap_english()
+        case "TYPE_VEDIO":            //领导监管
+            return getConfigMap_vedio()
+    }
+}
+
+//模块独立运行
+Map<String, String> getConfigMap_along() {
+    return [
+            applicationId     : "com.openxu.along",    //应用包名
+            versionCode       : 1,                       //应用版本号
+            versionName       : '1.0.0',                 //版本名
+            //buildConfig
+            appId             : "\"com.openxu.along\"",//应用包名字符串
+            appType           : "\"TYPE_ALONG\"",   //app版本区分   com.fpc.core.config.AppTypes中查看
+//            baseUrl                    : "\"http://114.115.144.251:8085/\"",    //BaseUrl
+            appFileRoot       : "\"OpenXu\"",   //app存储文件夹名
+            //Application初始化类，使用,分割
+            applicationInitClass :""
+
+    ]
+}
+
+//英语词典
+Map<String, String> getConfigMap_english() {
+    return [
+            applicationId     : "com.openxu.english",    //应用包名
+            versionCode       : 24,                       //应用版本号
+            versionName       : '1.3.6',                 //版本名
+            //buildConfig
+            appId             : "\"com.openxu.english\"",//应用包名字符串
+            appType           : "\"TYPE_ENGLISH\"",   //app版本区分   com.fpc.core.config.AppTypes中查看
+//            baseUrl                    : "\"http://114.115.144.251:8085/\"",    //BaseUrl
+            appFileRoot       : "\"OpenXu\"",   //app存储文件夹名
+            //Application初始化类，使用,分割
+            applicationInitClass :"\"com.openxu.english.AppInitLogic\""
+    ]
+}
+
+Map<String, String> getConfigMap_vedio() {
+    return [
+            applicationId       : "com.openxu.vedio",    //应用包名
+            versionCode         : 1,                       //应用版本号
+            versionName         : '1.0.0',                 //版本名
+            //buildConfig
+            appId               : "\"com.openxu.vedio\"",//应用包名字符串
+            appType             : "\"TYPE_VEDIO\"",   //app版本区分   com.fpc.core.config.AppTypes中查看
+//            baseUrl                    : "\"http://114.115.144.251:8085/\"",    //BaseUrl
+            appFileRoot         : "\"OpenXu\"",   //app存储文件夹名
+            //Application初始化类，使用,分割
+            applicationInitClass: "\"com.openxu.vedio.AppInitLogic\""
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout 
+        android:id="@+id/ll_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:id="@+id/ll_left_back"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_hight"
+        android:layout_below="@+id/ll_top"
+        android:layout_toLeftOf="@+id/ll_title_menu"
+        android:background="#00000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_title_back"
+            android:layout_width="@dimen/title_hight"
+            android:layout_height="@dimen/title_hight"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/iv_title_back"
+                android:layout_width="@dimen/title_icon_size"
+                android:layout_height="@dimen/title_icon_size"
+                android:scaleType="fitXY"
+                android:src="@drawable/open_title_back" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_title_home"
+            android:layout_width="@dimen/title_icon_size"
+            android:layout_height="@dimen/title_icon_size"
+            android:background="#00000000"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:text="标题"
+            android:textSize="@dimen/title_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_title_menu"
+        android:layout_width="@dimen/title_hight"
+        android:layout_height="@dimen/title_hight"
+        android:layout_below="@+id/ll_top"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/iv_title_menu"
+            android:layout_width="28dip"
+            android:layout_height="28dip"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+</RelativeLayout>

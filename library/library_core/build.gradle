@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+
+android {
+    rootProject.ext.setAndroidConfig android
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "appId", rootProject.ext.appId
+            buildConfigField "String", "appType", rootProject.ext.appType
+            buildConfigField "String", "appFileRoot", rootProject.ext.appFileRoot
+            buildConfigField "String", "applicationInitClass", rootProject.ext.applicationInitClass
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "appId", rootProject.ext.appId
+            buildConfigField "String", "appType", rootProject.ext.appType
+            buildConfigField "String", "appFileRoot", rootProject.ext.appFileRoot
+            buildConfigField "String", "applicationInitClass", rootProject.ext.applicationInitClass
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //api 'com.android.support:appcompat-v7:28.0.0'
+    /**AndroidX*/
+    api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["viewmodel"]
+    api rootProject.ext.dependencies["livedata"]
+    api rootProject.ext.dependencies["lifecycle"]
+    api rootProject.ext.dependencies["multidex"]
+    api rootProject.ext.dependencies["constraintlayout"]
+    api rootProject.ext.dependencies["recyclerview"]
+    api rootProject.ext.dependencies["recyclerview-selection"]
+    /**三方库*/
+    //SmartRefreshLayout 刷新1.1.0 androidx 版本
+    api rootProject.ext.dependencies["SmartRefreshHeader"]
+    api(rootProject.ext.dependencies["SmartRefreshLayout"]) {
+        exclude group: 'androidx.lifecycle', module: 'lifecycle-runtime'
+    }
+    //okhttp+retrofit
+    api rootProject.ext.dependencies["logging-interceptor"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["adapter-rxjava"]
+    api rootProject.ext.dependencies["converter"]
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["autodispose"]
+    //阿里路由框架
+    api rootProject.ext.dependencies["arouter-api"]
+    //每个组件中依赖阿里路由编译框架
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    //二维码
+    api rootProject.ext.dependencies["zxing"]
+    api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["rxbus"]
+
+}
+
+//强制指定依赖版本，避免冲突
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        def requested = details.requested
+        if (requested.group == 'androidx.lifecycle') {
+            if (requested.name.startsWith("lifecycle-runtime")) {
+                details.useVersion '2.2.0'
+            }
+        }
+    }
+}

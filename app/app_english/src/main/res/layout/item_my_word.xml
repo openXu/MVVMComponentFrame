@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- 颜色设为不透明，六位，就看不到被点击效果 （被遮住了） -->
+
+    <TextView
+        android:id="@+id/catalog"
+        android:layout_width="fill_parent"
+        android:layout_height="24dip"
+        android:background="#ebebeb"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dip"
+        android:textColor="#454545"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/rl_en"
+        android:layout_width="fill_parent"
+        android:layout_height="80dip" 
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_en"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:singleLine="true"
+            android:text="sdfsadfasd"
+            android:textSize="@dimen/text_size_16"/>
+        <TextView
+            android:id="@+id/tv_zh"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="10dip"
+            android:text="sdfsadfasd"
+            android:singleLine="true"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_15"/>
+        
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1sp"
+        android:layout_marginRight="20dip"
+        android:layout_marginLeft="20dip"
+        android:background="@color/sub_line" />
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 实心 -->
+    <solid android:color="#ffffff" />
+
+    <corners
+        android:radius="5dip"/>
+
+    <!-- 描边 -->
+    <stroke
+        android:width="1sp"
+        android:color="@color/pf1_regist_line_color" />
+
+</shape>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--data节点配置class属性，设置Binding全类名-->
+    <data>
+        <variable name="data" type="String" />   <!--仅仅为了在lib中生成BR.data-->
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.openxu.core.view.TitleLayout
+            android:id="@id/titleLayout"
+            style="@style/TitleDefStyle"
+            app:textcenter="通用Fragment" />
+        <FrameLayout
+            android:id="@+id/extr_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleLayout"/>
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/extr_header"
+            android:layout_above="@+id/extr_footer"
+            app:srlEnableLoadMore="true"
+            app:srlEnableAutoLoadMore="false">
+            <com.scwang.smartrefresh.header.MaterialHeader
+                android:id="@+id/refreshHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.openxu.core.view.EmptyRecyclerView
+                android:id="@id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"/>
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@id/refreshFooter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        <FrameLayout
+            android:id="@+id/extr_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</layout>
+

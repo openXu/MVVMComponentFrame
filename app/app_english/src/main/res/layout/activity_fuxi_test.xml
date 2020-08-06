@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/linearLayout"
+        android:orientation="vertical" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="词汇复习" />
+
+    <LinearLayout
+        android:id="@+id/ll_loding"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/iv_loding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/open_list_lodding" />
+
+        <TextView
+            android:id="@+id/tv_loding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dip"
+            android:text="正在加载..."
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_line"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="20dip"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_13" />
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="30"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_13" />
+        </RelativeLayout>
+
+        <com.openxu.view.LineProgressBar
+            android:id="@+id/linebar"
+            android:layout_width="fill_parent"
+            android:layout_height="5dip"
+            android:layout_marginTop="3dip"
+            android:layout_alignParentBottom="true" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sv_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dip" >
+
+                <TextView
+                    android:id="@+id/tv_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="hehe"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/text_size_18"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_voice"
+                    android:layout_width="22.0dip"
+                    android:layout_height="22.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3.0dip"
+                    android:src="@drawable/open_renwu_say_selector" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_tishi"
+                android:layout_width="wrap_content"
+                android:layout_height="38dip"
+                android:layout_marginBottom="25dip"
+                android:background="@drawable/view_text_answer"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="30dip"
+                android:paddingRight="30dip"
+                android:text="提示"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/tv_tishi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dip"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip"
+                android:textColor="@color/text_color_gay"
+                android:textSize="16.0sp" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="49.0dip"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ll_a"
+                    android:layout_width="260.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/view_text_answer" >
+
+                    <TextView
+                        android:id="@+id/Atv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11.0dip"
+                        android:paddingRight="20.0dip"
+                        android:text="A"
+                        android:textSize="20.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="n.问题"
+                        android:textSize="16.0sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_a"
+                    android:layout_width="19.0dip"
+                    android:layout_height="19.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3.0dip"
+                    android:layout_toRightOf="@id/ll_a" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="49.0dip"
+                android:layout_marginTop="9.0dip"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ll_b"
+                    android:layout_width="260.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/view_text_answer" >
+
+                    <TextView
+                        android:id="@+id/Btv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11.0dip"
+                        android:paddingRight="20.0dip"
+                        android:text="B"
+                        android:textSize="20.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="adj.友善的、友好的"
+                        android:textSize="16.0sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_b"
+                    android:layout_width="19.0dip"
+                    android:layout_height="19.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3.0dip"
+                    android:layout_toRightOf="@id/ll_b" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="49.0dip"
+                android:layout_marginTop="9.0dip" >
+
+                <LinearLayout
+                    android:id="@+id/ll_c"
+                    android:layout_width="260.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/view_text_answer" >
+
+                    <TextView
+                        android:id="@+id/Ctv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11.0dip"
+                        android:paddingRight="20.0dip"
+                        android:text="C"
+                        android:textSize="20.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:singleLine="true"
+                        android:text="adv.亲切的、和蔼的"
+                        android:textSize="16.0sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_c"
+                    android:layout_width="19.0dip"
+                    android:layout_height="19.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3.0dip"
+                    android:layout_toRightOf="@id/ll_c" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="49.0dip"
+                android:layout_marginTop="9.0dip"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ll_d"
+                    android:layout_width="260.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/view_text_answer" >
+
+                    <TextView
+                        android:id="@+id/Dtv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="11.0dip"
+                        android:paddingRight="20.0dip"
+                        android:text="D"
+                        android:textSize="20.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="v.困难的、麻烦的、困难的"
+                        android:textSize="16.0sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_d"
+                    android:layout_width="19.0dip"
+                    android:layout_height="19.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3.0dip"
+                    android:layout_toRightOf="@id/ll_d" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dip"
+                android:layout_marginTop="25dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_wjl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/view_text_answer"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="30dip"
+                    android:paddingRight="30dip"
+                    android:text="忘记了"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_lable_no"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/open_shape_fanyi_bag"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="10dip"
+            android:text="昨天没有记单词(⊙o⊙)哦"
+            android:textColor="@color/text_color_gay"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_over"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/bg_gray"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:id="@+id/allcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/titlebar"
+                android:layout_width="282.0dip"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="51dip"
+                android:src="@drawable/book_complete_title" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titlebar"
+                android:gravity="center_horizontal"
+                android:paddingTop="22.0dip"
+                android:text="恭喜你！今天的单词复习任务完成了"
+                android:textSize="19.0sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" >
+
+                <RelativeLayout
+                    android:layout_width="250.0dip"
+                    android:layout_height="250.0dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/stars"
+                        android:layout_width="257.0dip"
+                        android:layout_height="150.0dip"
+                        android:src="@drawable/book_complete_star" />
+
+                    <LinearLayout
+                        android:id="@+id/content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stars"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="奖励你"
+                            android:textSize="18.0sp" />
+
+                        <TextView
+                            android:id="@+id/tv_jy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textSize="28.0sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="经验值"
+                            android:textSize="18.0sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+
+     <!-- 广告 -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal" >
+
+        <LinearLayout
+            android:id="@+id/miniAdLinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+    </LinearLayout>
+</com.openxu.view.slidingfinish.SildingFinishLayout>

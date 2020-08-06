@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            openxu:isBackShow="true"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="false"
+            openxu:titleStr="我的词书" />
+
+        <ListView
+            android:id="@+id/lv_booklist"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:divider="@null"
+            android:listSelector="@drawable/pf1_item_selector" />
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

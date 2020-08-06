@@ -1,0 +1,522 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.openxu.english"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- bmob -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- IM -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+     <!-- 这个权限用于进行网络定位-->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+	<!-- 这个权限用于访问GPS定位-->
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+	<!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+
+    <permission
+        android:name="cn.bmob.permission.push"
+        android:protectionLevel="normal" >
+    </permission>
+
+    <uses-permission android:name="cn.bmob.permission.push" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- 友盟 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 推送必选 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 用以设置前台是否显示通知 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- 更新 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 万普 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- sharedsdk -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+<!--     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> -->
+    
+    <!-- 讯飞语言 -->
+    <!--连接网络权限，用于执行云端语音能力 -->  
+	<uses-permission android:name="android.permission.INTERNET"/>  
+	<!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->  
+	<uses-permission android:name="android.permission.RECORD_AUDIO"/>  
+	<!--读取网络信息状态 -->  
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
+	<!--获取当前wifi状态 -->  
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
+	<!--允许程序改变网络连接状态 -->  
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>  
+	<!--读取手机信息权限 -->  
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>  
+	<!--读取联系人权限，上传联系人需要用到此权限 -->  
+<!-- 	<uses-permission android:name="android.permission.READ_CONTACTS"/>  
+ -->
+    <application
+        android:name="com.openxu.ui.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:sharedUserId="android.uid.system"
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name="com.openxu.ui.ActivitySplash"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.openxu.ui.MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoTran"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityRegist"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityLogin"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.openxu.ui.ActivityZHMM"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityPf"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivitySentence"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityBook"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityMyWordBook"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityMyWord"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivitySortWord"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityRenwuJilu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityXuexi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityTest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityFuxi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityShowOneWord"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityRenwu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityRenwuPlay"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivityFuxi1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.openxu.ui.ActivitySetting"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+             <activity
+            android:name="com.openxu.ui.ActivitySetMsg"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityApp"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityAppHelp"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ChatActivityToDevelop"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityTyImage"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+       <activity
+            android:name="com.openxu.ui.ActivityContact"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+       <activity
+            android:name="com.openxu.ui.ActivitySearchUser"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityNearPeople"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+         <activity
+            android:name="com.openxu.ui.ActivityNewFriend"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityFirendInfo"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ChatActivityRecent"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ChatActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ImageBrowserActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityDBSC"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivitySetUser"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivitySetUserLev"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.openxu.ui.ActivityMyAd"  
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <service android:name="com.openxu.server.CoreService" >
+        </service>
+
+        <!-- 消息推送 -->
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="0f8ba94259ada30b03f5c55fde48b911" >
+        </meta-data>
+        <!-- 请填写实际的类名，下面仅是示例代码 -->
+        <service
+            android:name="com.openxu.service.MyPushIntentService"
+            android:process=":push" />
+        <!-- 监听通知点击或者忽略处理的广播 -->
+        <receiver
+            android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+            android:exported="false" >
+        </receiver>
+        <!-- 监听开机运行、网络连接变化、卸载的广播 -->
+        <receiver
+            android:name="com.umeng.message.SystemReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 监听消息到达的广播 -->
+        <receiver
+            android:name="com.umeng.message.MessageReceiver"
+            android:exported="false"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 监听宿主选举的广播 -->
+        <receiver
+            android:name="com.umeng.message.ElectionReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4" />
+
+                <category android:name="umeng" />
+            </intent-filter>
+        </receiver>
+        <!-- 监听注册的广播 -->
+        <!-- 【应用包名】字符串需要替换成本应用的应用包名 -->
+        <receiver
+            android:name="com.umeng.message.RegistrationReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.openxu.english.intent.action.COMMAND" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.UmengMessageBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Umeng的长连服务，用来建立推送的长连接的 -->
+        <!-- 【应用包名】字符串需要替换成本应用的应用包名 -->
+        <service
+            android:name="com.umeng.message.UmengService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="com.openxu.english.intent.action.START" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.openxu.english.intent.action.COCKROACH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4" />
+
+                <category android:name="umeng" />
+            </intent-filter>
+        </service>
+
+        <!-- Umeng的消息接收服务 -->
+        <service
+            android:name="com.umeng.message.UmengIntentService"
+            android:process=":push" />
+
+        <!-- Umeng的消息路由服务 -->
+        <service
+            android:name="com.umeng.message.UmengMessageIntentReceiverService"
+            android:exported="true"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.android.agoo.client.ElectionReceiverService" />
+            </intent-filter>
+        </service>
+        <!-- v2.4.1添加的Service，Umeng的消息接收后的处理服务 -->
+        <service
+            android:name="com.umeng.message.UmengMessageCallbackHandlerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.umeng.messge.registercallback.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.unregistercallback.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.handler.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.autoupdate.handler.action" />
+            </intent-filter>
+        </service>
+
+        <!-- V1.3.0添加的service，负责下载通知的资源 -->
+        <service android:name="com.umeng.message.UmengDownloadResourceService" />
+
+        <!-- V2.5.0添加的Service，用于本地通知 -->
+        <!-- 如果不使用本地通知，可以注释掉本地通知服务的配置 -->
+        <service
+            android:name="com.umeng.message.local.UmengLocalNotificationService"
+            android:exported="false" />
+		<!-- 友盟 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55b5c475e0f55a5f2b001f1b" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="xiaomi" >
+        </meta-data>
+        <!-- 万普 -->
+        <meta-data
+            android:name="APP_ID"
+            android:value="d599d2add85fb91cad740d0d82121070" />
+        <meta-data
+            android:name="APP_PID"
+            android:value="xiaomi" />
+
+        <!-- SharedSDK -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent1104808665" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name="cn.sharesdk.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 易信分享回调 -->
+        <activity
+            android:name=".yxapi.YXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- BMOB IM -->
+        <!-- IM聊天所需的Push start -->
+        <service
+            android:name="cn.bmob.push.lib.service.PushService"
+            android:exported="true"
+            android:label="PushService"
+            android:permission="cn.bmob.permission.push"
+            android:process="cn.bmob.push" >
+            <intent-filter>
+                <action android:name="cn.bmob.push.lib.service.PushService" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="cn.bmob.push.PushReceiver" >
+            <intent-filter android:priority="2147483647" >
+ <!-- 优先级加最高 -->
+                <!-- 系统启动完成后会调用 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 解锁完成后会调用 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- 监听网络连通性 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <!-- 聊天消息接收器 -->
+        <receiver android:name="com.openxu.receiver.MyMessageReceiver" >
+            <intent-filter>
+                <action android:name="cn.bmob.push.action.MESSAGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- IM聊天所需的Push end -->
+
+
+        <!-- 个性功能中的启动定时检测服务，可选功能 -->
+        <service android:name="cn.bmob.im.poll.BmobPollService" >
+            <intent-filter>
+                <action android:name="cn.bmob.im.service.BmobPollService" />
+            </intent-filter>
+        </service>
+         <!-- baidu map-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="342OGbhyrXd82zaxOVDPSVA8" />	
+         <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
+        
+    </application>
+
+</manifest>

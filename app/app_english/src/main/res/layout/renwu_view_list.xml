@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_gray" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/linearLayout1" >
+
+        <ListView
+            android:id="@+id/lv_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent" />
+
+        <LinearLayout
+            android:id="@+id/ll_lianxi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:text="今天的单词都学习完了，趁热打铁快去练习吧~~"
+                android:textColor="@color/text_color_gay"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tv_lianxi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dip"
+                android:paddingLeft="40dip"
+                android:paddingRight="40dip"
+                android:paddingTop="10dip"
+                android:text="去练习"
+                android:textColor="#ff0000"
+                android:textSize="@dimen/text_size_15" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 广告 -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_paly"
+        android:gravity="center_horizontal" >
+
+        <LinearLayout
+            android:id="@+id/miniAdLinearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_paly"
+        android:layout_width="fill_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/open_play_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:text="幻灯播放"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_15" />
+    </LinearLayout>
+
+</RelativeLayout>

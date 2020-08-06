@@ -1,0 +1,28 @@
+<resources>
+
+    <dimen name="title_height">48dp</dimen>
+    <dimen name="activity_sides_margin">12dp</dimen>  <!--根据Android设计指南, 默认屏幕边距-->
+    <dimen name="line_height">.9dp</dimen>   <!--分割线高度-->
+    <dimen name="line_space">7dp</dimen>     <!--分割线高度-->
+
+    <dimen name="common_item_top_bottom_margin">10dp</dimen> <!--item上下边距-->
+    <dimen name="item_lable_space">5dp</dimen>    <!--item中 lable的上下文行距-->
+    <!--字体大小主基调-->
+    <dimen name="text_size_level_big">15sp</dimen>
+    <dimen name="text_size_level_def">14sp</dimen>
+    <dimen name="text_size_level_mid">12sp</dimen>
+    <dimen name="text_size_level_small">10sp</dimen>
+    <dimen name="text_size_edit_hint">12sp</dimen>
+
+    <!--按钮高度-->
+    <dimen name="btn_height">40dip</dimen>
+
+    <!--对话框-->
+    <dimen name="dialog_width">270dp</dimen>
+    <dimen name="dialog_title_height">40dip</dimen>  <!--对话框标题高度-->
+    <dimen name="dialog_btn_content_height">45dp</dimen>  <!--对话框中部分高度-->
+    <dimen name="dialog_btn_height">27dp</dimen>  <!--对话框中按钮高度-->
+    <dimen name="dialog_btn_width">101dp</dimen>  <!--对话框中按钮高度-->
+
+
+</resources>

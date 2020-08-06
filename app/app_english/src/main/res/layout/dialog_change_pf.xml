@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:paddingLeft="60dip"
+    android:paddingRight="60dip">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/pf_item_size"
+            android:gravity="center"
+            android:text="选择色调"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size_15" />
+
+        <ImageView
+            android:id="@+id/iv_line1"
+            android:layout_width="match_parent"
+            android:layout_height="0.7sp"
+            android:layout_marginLeft="2dip"
+            android:layout_marginRight="2dip"
+            android:src="@color/sub_line" />
+
+        <ListView
+            android:id="@+id/lv_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null" />
+        <TextView
+            android:id="@+id/tv_cancle"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/pf_item_size"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size_15" />
+    </LinearLayout>
+
+</LinearLayout>

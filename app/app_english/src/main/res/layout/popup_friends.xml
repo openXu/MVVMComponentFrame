@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_bag"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/pf1_pop_friend"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:padding="10dip" >
+
+    <ImageView
+        android:id="@+id/iv_friends"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:src="@drawable/popup_firend" />
+
+    <ImageView
+        android:id="@+id/iv_new_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:contentDescription="@string/action_settings"
+        android:src="@drawable/msg_tips" />
+
+</FrameLayout>

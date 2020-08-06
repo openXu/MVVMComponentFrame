@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    android:id="@+id/rootView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/pf1_login_bg"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"
+        openxu:titleStr="注册"
+        openxu:titleTextColor="#ffffff" />
+
+        <LinearLayout
+            android:id="@+id/input"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="100dip"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:background="@drawable/login_edit_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip" >
+
+                <EditText
+                    android:id="@+id/et_1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="2sp"
+                    android:layout_marginTop="2sp"
+                    android:background="@null"
+                    android:hint="手机号码"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textColorHint="#88ffffff"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:layout_marginTop="@dimen/login_mt"
+                android:background="@drawable/login_edit_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dip"
+                android:paddingRight="2dip" >
+
+                <EditText
+                    android:id="@+id/et_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="2sp"
+                    android:layout_marginTop="2sp"
+                    android:layout_toLeftOf="@+id/btn_getCode"
+                    android:layout_marginRight="5dip"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textColorHint="#88ffffff"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/tv_getCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/pf1_login_btn_selector"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:paddingTop="5dip"
+                    android:text="获取动态码"
+                    android:textColor="#62C2F2"
+                    android:textSize="@dimen/text_size_13" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:layout_marginTop="@dimen/login_mt"
+                android:background="@drawable/login_edit_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dip"
+                android:paddingRight="15dip" >
+
+                <EditText
+                    android:id="@+id/et_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="2sp"
+                    android:layout_marginTop="2sp"
+                    android:background="@null"
+                    android:hint="输入邮箱便于找回密码"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textColorHint="#88ffffff"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_regist"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:layout_marginTop="@dimen/login_mt"
+                android:background="@drawable/pf1_login_btn_selector"
+                android:gravity="center"
+                android:onClick="regist"
+                android:text="确认注册"
+                android:textColor="#62C2F2"
+                android:textSize="@dimen/text_size_16" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_marginTop="@dimen/login_mt" >
+
+                <TextView
+                    android:id="@+id/tv_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="other"
+                    android:text="选择邮箱注册>"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_size_14" />
+            </RelativeLayout>
+        </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">视频</string>
+    <!--登录界面-->
+    <string name="libres_login_lable_system_name" translatable="false">视频</string>
+</resources>

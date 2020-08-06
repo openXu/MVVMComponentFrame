@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_alpha"
+        android:layout_width="fill_parent"
+        android:layout_height="24dip"
+        android:background="#ebebeb"
+        android:gravity="center_vertical"
+        android:paddingLeft="18dip"
+        android:focusable="false"
+        android:text="A"
+        android:textColor="#454545"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dip" >
+
+        <ImageView
+            android:id="@+id/img_friend_avatar"
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:contentDescription="@string/action_settings"
+            android:padding="5dip"
+            android:src="@drawable/open_user_icon_def" />
+
+        <TextView
+            android:id="@+id/tv_friend_name"
+            style="@style/Smile.TextView._Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:singleLine="true"
+            android:text="@string/new_friends"
+            android:textColor="#aa000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5px"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="25dip"
+        android:background="@color/sub_line" />
+
+</LinearLayout>

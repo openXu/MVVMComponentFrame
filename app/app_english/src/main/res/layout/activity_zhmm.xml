@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            openxu:bgColorId="@color/pf1_title_bg"
+            openxu:isBackShow="true"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="false"
+            openxu:titleStr="找回密码"
+            openxu:titleTextColor="#ffffff" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="100dip"
+            android:background="@drawable/pf1_regist_edit_bg"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_1"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入邮箱或者手机号"
+                android:maxLines="1"
+                android:paddingLeft="15dip"
+                android:text=""
+                android:textColorHint="@color/edittext_hint"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/pf1_regist_edit_bg"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_2"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入验证码"
+                android:maxLines="1"
+                android:paddingLeft="15dip"
+                android:text=""
+                android:textColorHint="@color/edittext_hint"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/pf1_regist_edit_bg"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/et_3"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/login_item_hight"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="设置新密码"
+                android:maxLines="1"
+                android:paddingLeft="15dip"
+                android:text=""
+                android:textColorHint="@color/edittext_hint"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_zhmm"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/login_item_hight"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/pf1_regist_btn_selector"
+            android:gravity="center"
+            android:onClick="zhmm"
+            android:text="找回密码"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/text_size_16" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="30dip"
+            android:text="验证码已经给你发过去了"
+            android:textColor="@color/text_color_gay" />
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

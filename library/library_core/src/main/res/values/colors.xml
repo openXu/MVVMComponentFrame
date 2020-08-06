@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--FToast-->
+    <color name="toast_defaultTextColor">#FFFFFF</color> <!--Toast默认文字颜色-->
+    <color name="toast_errorColor">#D50000</color><!--各种Toast背景底色-->
+    <color name="toast_infoColor">#3F51B5</color>
+    <color name="toast_successColor">#388E3C</color>
+    <color name="toast_warningColor">#FFA900</color>
+    <color name="toast_normalColor">#353A3E</color>
+    <!--****↓↓↓↓↓↓↓↓↓↓↓↓app整体颜色规范↓↓↓↓↓↓↓↓↓↓↓↓****-->
+
+    <!--整个app主色调，用于title_bar等重要的颜色提醒-->
+    <color name="title_bar_color">#db4527</color>
+    <!--通用背景色-->
+    <color name="main_style">#f7f7f7</color>
+    <!--白色内容区域按下时的背景色-->
+    <color name="white_press_bg">#16000000</color>
+    <!--线条色-->
+    <color name="line_bg_color">#f7f7f7</color>
+    <color name="chart_line_color">#e6e6e6</color>
+
+    <!--字体颜色-->
+    <color name="text_color_def">#5E5E5E</color>
+    <color name="text_color_light_gray">#939393</color>
+    <color name="edit_hint_color">#cecece</color>
+
+    <!--辅助色-->
+    <color name="color_white">#ffffff</color>
+    <color name="color_red">#d94630</color>
+    <color name="color_yellow">#f28d02</color>
+    <color name="color_green">#66b61d</color>
+    <color name="color_blue">#5da3f4</color>
+    <color name="color_bg_grey">#F2F2F2</color>>
+    <color name="color_main_orange">#DB4528</color>
+    <!--****↑↑↑↑↑↑↑↑↑↑↑↑app整体颜色规范↑↑↑↑↑↑↑↑↑↑↑↑****-->
+
+    <!--二维码扫描-->
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#db4527</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#805c5c5c</color>
+    <color name="transparent">#00000000</color>
+</resources>

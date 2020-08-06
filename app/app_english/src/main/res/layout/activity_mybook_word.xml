@@ -1,0 +1,87 @@
+<com.openxu.view.slidingfinish.SildingFinishLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:clickable="true">
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        openxu:isBackShow="true"
+        openxu:isHomeShow="false"
+        openxu:isMenuShow="false"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_below="@+id/titleView"
+        android:layout_above="@+id/linearLayout2">
+
+        <LinearLayout
+        android:id="@+id/ll_loding"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+          <ImageView
+            android:id="@+id/iv_loding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/open_list_lodding" />
+
+        <TextView
+            android:id="@+id/tv_loding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dip"
+            android:text="正在加载..."
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_16" />
+    </LinearLayout>
+        
+        <TextView
+            android:id="@+id/tv_no"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:lineSpacingExtra="10dip"
+            android:text="单词本空空哒！\r\n快去添加吧"
+            android:textColor="@color/text_color_gay"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/color_white"
+            android:divider="@null"
+            android:listSelector="@drawable/pf1_item_selector" />
+    </RelativeLayout>
+
+     <!-- 广告 -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal" >
+
+        <LinearLayout
+            android:id="@+id/miniAdLinearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+    </LinearLayout>
+    
+</com.openxu.view.slidingfinish.SildingFinishLayout>

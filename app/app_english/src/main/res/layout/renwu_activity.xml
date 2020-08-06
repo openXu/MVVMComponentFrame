@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+<LinearLayout
+    android:clipToPadding="true"
+	android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical" >
+
+    <com.openxu.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	openxu:titleStr = "单词任务"
+    	openxu:isBackShow = "true"
+    	openxu:isHomeShow = "false"
+    	openxu:isMenuShow = "false"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_bg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pf1_title_bg"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_lable_renwu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="待学新词:"
+                        android:textSize="@dimen/text_size_18" />
+
+                    <TextView
+                        android:id="@+id/tv_renwu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dip"
+                        android:singleLine="true"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/text_size_22"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                         android:id="@+id/tv_lable_finish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:text="已学单词:"
+                        android:textSize="@dimen/text_size_18" />
+
+                    <TextView
+                        android:id="@+id/tv_finish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="5dip"
+                        android:singleLine="true"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/text_size_22"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <com.openxu.view.RoundProgressBar
+                android:id="@+id/rb_progress"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:layout_marginLeft="20dip"
+                openxu:roundColor="@color/color_white"
+                openxu:roundProgressColor="#009900"
+                openxu:roundWidth="5dip"
+                openxu:textIsDisplayable="true"
+                openxu:numTextColor="@color/color_white"
+                openxu:numTextSize="@dimen/text_size_20"
+                openxu:textColor="@color/color_white"
+                openxu:textSize="@dimen/text_size_14"  />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+ 
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/tabstrip"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:gravity="center" />
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
+</com.openxu.view.slidingfinish.SildingFinishLayout>

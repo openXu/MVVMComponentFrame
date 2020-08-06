@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_pic"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_centerVertical="true" >
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+           android:scaleType="fitXY"
+            android:layout_centerInParent="true"
+            android:src="@drawable/open_main_menu_dcb" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/cidian_margin"
+        android:layout_toRightOf="@+id/rl_pic"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的最爱"
+            android:textSize="@dimen/text_size_16" />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dip"
+            android:textColor="@color/text_gray"
+            android:text="100词"
+            android:textSize="@dimen/text_size_13" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="fill_parent"
+        android:layout_height="0.3sp"
+        android:layout_alignBottom="@+id/rl_pic"
+        android:layout_marginLeft="@dimen/cidian_margin"
+        android:layout_toRightOf="@+id/rl_pic"
+        android:background="@color/sub_line" />
+
+</RelativeLayout>

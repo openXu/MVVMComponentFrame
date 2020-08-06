@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+		package="com.openxu.core" >
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.NFC" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<!-- 请求安装未知来源 -->
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+	<application>
+		<!--用于承载Fragment页面的Activity，在开发过程中，我们使用Fragment代替Activity，避免清单文件需要对activity注册-->
+		<activity android:name=".base.FragmentActivity"
+				android:configChanges="orientation|screenSize|keyboardHidden"
+				android:screenOrientation="portrait"
+				android:windowSoftInputMode="stateHidden|adjustResize" />
+		<activity android:name="com.openxu.core.zxing.activity.DecoderActivity"
+				android:configChanges="orientation|screenSize|keyboardHidden"
+				android:screenOrientation="portrait"/>
+
+	</application>
+</manifest>

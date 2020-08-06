@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:clickable="true" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            openxu:isBackShow="true"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="false"
+            openxu:titleStr="皮肤"
+            openxu:titleTextColor="#ffffff" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_pf1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:layout_width="100dip"
+                            android:layout_height="160dip"
+                            android:src="@drawable/pf_icon_1" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:id="@+id/iv_ck1"
+                                android:layout_width="18dip"
+                                android:layout_height="18dip"
+                                android:background="@drawable/open_hf_check_selector"
+                                android:clickable="false" />
+
+                            <TextView
+                                android:id="@+id/tv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dip"
+                                android:gravity="center"
+                                android:text="简约蓝"
+                                android:textColor="@color/text_color_gay"
+                                android:textSize="@dimen/text_size_14" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_pf2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <FrameLayout
+                            android:layout_width="100dip"
+                            android:layout_height="160dip" >
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:src="@drawable/pf_icon_2" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_lock2"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:background="#22000000"
+                                android:gravity="center"
+                                android:orientation="vertical" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/open_pay_lock" />
+
+                                <TextView
+                                    android:id="@+id/tv_lock2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dip"
+                                    android:gravity="center"
+                                    android:text="30积分兑换"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:id="@+id/iv_ck2"
+                                android:layout_width="18dip"
+                                android:layout_height="18dip"
+                                android:background="@drawable/open_hf_check_selector"
+                                android:clickable="false" />
+
+                            <TextView
+                                android:id="@+id/tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dip"
+                                android:gravity="center"
+                                android:text="清新绿"
+                                android:textColor="@color/text_color_gay"
+                                android:textSize="@dimen/text_size_14" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dip"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_pf3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <FrameLayout
+                            android:layout_width="100dip"
+                            android:layout_height="160dip" >
+
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:src="@drawable/pf_icon_3" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_lock3"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:background="#22000000"
+                                android:gravity="center"
+                                android:orientation="vertical" >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/open_pay_lock" />
+
+                                <TextView
+                                    android:id="@+id/tv_lock3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dip"
+                                    android:gravity="center"
+                                    android:text="40积分兑换"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:id="@+id/iv_ck3"
+                                android:layout_width="18dip"
+                                android:layout_height="18dip"
+                                android:background="@drawable/open_hf_check_selector"
+                                android:clickable="false" />
+
+                            <TextView
+                                android:id="@+id/tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dip"
+                                android:gravity="center"
+                                android:text="日落红"
+                                android:textColor="@color/text_color_gay"
+                                android:textSize="@dimen/text_size_14" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:visibility="invisible" >
+
+                        <ImageView
+                            android:layout_width="110dip"
+                            android:layout_height="160dip"
+                            android:src="@drawable/setting_pf1" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:id="@+id/iv_ck4"
+                                android:layout_width="18dip"
+                                android:layout_height="18dip"
+                                android:background="@drawable/open_hf_check_selector"
+                                android:clickable="false" />
+
+                            <TextView
+                                android:id="@+id/tv_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dip"
+                                android:gravity="center"
+                                android:text="清新绿"
+                                android:textColor="@color/text_color_gay"
+                                android:textSize="@dimen/text_size_14" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_marginTop="15dip"
+        android:background="@drawable/open_shape_sentence_bag"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dip"
+            android:layout_margin="1dip" >
+
+            <ImageView
+                android:id="@+id/iv_sentenceicon"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tv_one_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#22000000"
+                android:paddingBottom="5dip"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:paddingTop="5dip"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_one_eng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size_15"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/tv_one_chi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:textColor="@color/text_color_gay"
+            android:textSize="@dimen/text_size_15" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.7sp"
+            android:layout_marginTop="5dip"
+            android:src="@color/sub_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ll_share"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:src="@drawable/open_share_icon" />
+
+                <TextView
+                    android:id="@+id/tv_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dip"
+                    android:text="分享"
+                    android:textColor="@color/text_color_gay"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="0.7sp"
+                android:layout_height="fill_parent"
+                android:src="@color/sub_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_langdu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dip"
+                    android:layout_height="20dip"
+                    android:src="@drawable/open_sentence_fayin" />
+
+                <TextView
+                    android:id="@+id/tv_langdu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dip"
+                    android:text="整句发音"
+                    android:textColor="@color/text_color_gay"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

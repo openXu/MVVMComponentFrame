@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FDFBE9"
+    android:orientation="horizontal"
+    android:padding="15dip">
+
+    <LinearLayout
+        android:layout_width="25dip"
+        android:layout_height="fill_parent"
+        android:background="#F7EEDA" />
+
+    <ImageView
+        android:layout_width="1.5sp"
+        android:layout_height="fill_parent"
+        android:background="#F4D8C2" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FEF4DD"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_centerVertical="true"
+                android:text="我的单词"
+                android:textColor="#7E5E35"
+                android:textSize="@dimen/text_size_16" />
+
+            <ImageView
+                android:id="@+id/iv_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/open_mybook_update" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="fill_parent"
+            android:layout_height="0.7sp"
+            android:background="@color/sub_line" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip" >
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="日期:2015-09-9"
+                android:textColor="#D1C8BE"
+                android:textSize="@dimen/text_size_13" />
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:text="4000词"
+                android:textColor="#D1C8BE"
+                android:textSize="@dimen/text_size_13" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

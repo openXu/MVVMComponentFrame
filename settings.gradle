@@ -1,0 +1,6 @@
+include ':app:app_vedio'
+include ':app:app_run'
+include ':app:app_english'
+include ':library:library_core',
+        ':library:library_frame',
+        ':app:app_test'

@@ -1,0 +1,25 @@
+apply from: "config/conf_lib.gradle"
+apply from: "config/conf_app.gradle"
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+tasks.withType(JavaCompile){
+    options.encoding("UTF-8")
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

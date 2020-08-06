@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MVVMComponentFrame</string>
+    <string name="title_activity_login2">Login2Activity</string>
+</resources>

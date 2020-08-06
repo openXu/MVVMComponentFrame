@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.openxu.view.slidingfinish.SildingFinishLayout1 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        android:orientation="vertical" >
+
+        <com.openxu.view.TitleView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            openxu:isBackShow="true"
+            openxu:isHomeShow="false"
+            openxu:isMenuShow="true"
+            openxu:menuIcon="@drawable/open_title_test"
+            openxu:titleStr="单词学习" />
+
+        <RelativeLayout
+            android:id="@+id/rl_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray"
+            android:visibility="gone" >
+
+            <!-- 数标 -->
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginTop="10dip"
+                android:textColor="@color/text_color_gay"
+                android:textSize="16sp" />
+
+            <!-- 内容 -->
+
+            <LinearLayout
+                android:id="@+id/ll_content"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_above="@+id/linearLayout"
+                android:layout_below="@+id/tv_num"
+                android:layout_marginBottom="5dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:background="@drawable/open_shape_fanyi_bag"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="20dip"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/iv_love" >
+
+                        <TextView
+                            android:id="@+id/tv_english"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textSize="23sp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_english"
+                            android:layout_marginTop="10dip" >
+
+                            <ImageView
+                                android:id="@+id/iv_local_voice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/open_renwu_say_selector" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_ph"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal" >
+
+                                <ImageView
+                                    android:id="@+id/iv_ph_en"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignTop="@+id/tv_english"
+                                    android:src="@drawable/open_renwu_say_selector" />
+
+                                <TextView
+                                    android:id="@+id/tv_ph_en"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:singleLine="true"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:layout_marginRight="5dip"
+                                    android:singleLine="true"
+                                    android:text="/"
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                                <ImageView
+                                    android:id="@+id/iv_ph_am"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_alignTop="@+id/tv_english"
+                                    android:src="@drawable/open_renwu_say_selector" />
+
+                                <TextView
+                                    android:id="@+id/tv_ph_am"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:singleLine="true"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_love"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dip"
+                        android:src="@drawable/love_1" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5sp"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:background="#d7d7d7" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_china"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dip"
+                        android:paddingTop="20dip" >
+
+                        <TextView
+                            android:id="@+id/tv_parts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginRight="20dip"
+                            android:lineSpacingExtra="4dip"
+                            android:text=""
+                            android:textColor="@color/text_color_gay"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_exchange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginRight="20dip"
+                            android:layout_marginTop="20dip"
+                            android:lineSpacingExtra="4dip"
+                            android:text=""
+                            android:textColor="@color/text_color_gay"
+                            android:textSize="15sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/tv_sent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginRight="20dip"
+                            android:layout_marginTop="20dip"
+                            android:lineSpacingExtra="4dip"
+                            android:text=""
+                            android:textColor="@color/color_black"
+                            android:textSize="15sp"
+                            android:textStyle="italic" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <!-- 广告 -->
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ll_contrl"
+                android:gravity="center_horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/miniAdLinearLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+
+            <!-- 控制按钮 -->
+
+            <LinearLayout
+                android:id="@+id/ll_contrl"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentBottom="true"
+                android:background="#ffffff"
+                android:gravity="center_vertical" >
+
+                <LinearLayout
+                    android:id="@+id/ll_pre"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/open_play_previous_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:text="上一个"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1sp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginTop="10dip"
+                    android:background="#d7d7d7" />
+
+                <LinearLayout
+                    android:id="@+id/ll_paly"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/iv_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/open_play_selector" />
+
+                    <TextView
+                        android:id="@+id/tv_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:text="播放"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="1sp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginTop="10dip"
+                    android:background="#d7d7d7" />
+
+                <LinearLayout
+                    android:id="@+id/ll_next"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/open_play_next_selector" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dip"
+                        android:text="下一个"
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 控制按钮完 -->
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_loding"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/iv_loding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/open_list_lodding" />
+
+            <TextView
+                android:id="@+id/tv_loding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dip"
+                android:text="正在加载..."
+                android:textColor="@color/text_color_gay"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_finish"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="3" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="55.0dip"
+                android:layout_marginRight="55.0dip"
+                android:layout_weight="1" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_above="@+id/ll_btn"
+                    android:background="@drawable/test_success_bg"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/test_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_marginTop="20.0dip"
+                        android:text="亲，恭喜你~！"
+                        android:textColor="#ffcb6854"
+                        android:textSize="17.0sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/test_desc1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10.0dip"
+                            android:layout_marginTop="30.0dip"
+                            android:lineSpacingExtra="10dip"
+                            android:text="今天的单词已经学习完了，快去完成测试吧！"
+                            android:textColor="#ffcb6854"
+                            android:textSize="15.5sp" />
+
+                        <TextView
+                            android:id="@+id/test_desc2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/test_desc1"
+                            android:layout_marginLeft="10.0dip"
+                            android:layout_marginTop="15.0dip"
+                            android:lineSpacingExtra="10dip"
+                            android:text="只有完成了测试才算记住哦，加油！"
+                            android:textColor="#ffcb6854"
+                            android:textSize="15.5sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="6.0dip"
+                            android:layout_marginRight="12.0dip"
+                            android:layout_marginTop="60.0dip"
+                            android:src="@drawable/test_finished" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="20.0dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_xuexi"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/pf1_btn_selector"
+                        android:layout_marginRight="5dip"
+                        android:gravity="center"
+                        android:text="再学一遍"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:id="@+id/tv_test"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/pf1_btn_selector"
+                        android:layout_marginLeft="5dip"
+                        android:gravity="center"
+                        android:text="去测试"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/text_size_16" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_over"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/bg_gray"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <RelativeLayout
+                android:id="@+id/allcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/titlebar"
+                    android:layout_width="282.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="51dip"
+                    android:src="@drawable/book_complete_title" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titlebar"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="22.0dip"
+                    android:text="恭喜你！今天的单词任务测试完毕了"
+                    android:textSize="19.0sp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" >
+
+                    <RelativeLayout
+                        android:layout_width="250.0dip"
+                        android:layout_height="250.0dip"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical" >
+
+                        <ImageView
+                            android:id="@+id/stars"
+                            android:layout_width="257.0dip"
+                            android:layout_height="150.0dip"
+                            android:src="@drawable/book_complete_star" />
+
+                        <LinearLayout
+                            android:id="@+id/content"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/stars"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="已获得奖励"
+                                android:textSize="18.0sp" />
+
+                            <TextView
+                                android:id="@+id/tv_jinyan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100"
+                                android:textSize="28.0sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="经验值"
+                                android:textSize="18.0sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.openxu.view.slidingfinish.SildingFinishLayout1>

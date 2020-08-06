@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="data"
+            type="String"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_sides_margin"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_item"
+            android:text="@{data}"
+            android:clickable="true"
+            style="@style/btn_red"/>
+
+    </LinearLayout>
+</layout>
+
+
+

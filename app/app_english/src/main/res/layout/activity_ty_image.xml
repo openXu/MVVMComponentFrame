@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <ImageView
+        android:id="@+id/iv_result"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/rl_btn2"
+        android:layout_margin="10dip"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_contrl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_btn2"
+        android:layout_below="@+id/iv_result" >
+
+        <com.openxu.view.DrawZoomImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/sv_btn"
+            android:background="#000000" />
+
+        <HorizontalScrollView
+            android:id="@+id/sv_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:background="#212121" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ll_cx"
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/iv_cx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/image_edit_cx_selector" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_xp"
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/iv_xp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/image_edit_xp1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_color1"
+                        android:layout_width="@dimen/image_edit_color_wh_1"
+                        android:layout_height="@dimen/image_edit_color_wh_1"
+                        android:background="@drawable/image_edit_color_round"
+                        android:clickable="true"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="@dimen/image_edit_color_wh_2"
+                            android:layout_height="@dimen/image_edit_color_wh_2"
+                            android:background="@drawable/image_edit_color_c1" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_color2"
+                        android:layout_width="@dimen/image_edit_color_wh_1"
+                        android:layout_height="@dimen/image_edit_color_wh_1"
+                        android:background="@drawable/image_edit_color_round"
+                        android:clickable="true"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="@dimen/image_edit_color_wh_2"
+                            android:layout_height="@dimen/image_edit_color_wh_2"
+                            android:background="@drawable/image_edit_color_c2" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_color3"
+                        android:layout_width="@dimen/image_edit_color_wh_1"
+                        android:layout_height="@dimen/image_edit_color_wh_1"
+                        android:background="@drawable/image_edit_color_round"
+                        android:clickable="true"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="@dimen/image_edit_color_wh_2"
+                            android:layout_height="@dimen/image_edit_color_wh_2"
+                            android:background="@drawable/image_edit_color_c3" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_color4"
+                        android:layout_width="@dimen/image_edit_color_wh_1"
+                        android:layout_height="@dimen/image_edit_color_wh_1"
+                        android:background="@drawable/image_edit_color_round"
+                        android:clickable="true"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="@dimen/image_edit_color_wh_2"
+                            android:layout_height="@dimen/image_edit_color_wh_2"
+                            android:background="@drawable/image_edit_color_c4" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_color5"
+                        android:layout_width="@dimen/image_edit_color_wh_1"
+                        android:layout_height="@dimen/image_edit_color_wh_1"
+                        android:background="@drawable/image_edit_color_round"
+                        android:clickable="true"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="@dimen/image_edit_color_wh_2"
+                            android:layout_height="@dimen/image_edit_color_wh_2"
+                            android:background="@drawable/image_edit_color_c5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dip"
+                    android:layout_height="60dip"
+                    android:gravity="center" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_color6"
+                        android:layout_width="@dimen/image_edit_color_wh_1"
+                        android:layout_height="@dimen/image_edit_color_wh_1"
+                        android:background="@drawable/image_edit_color_round"
+                        android:clickable="true"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:layout_width="@dimen/image_edit_color_wh_2"
+                            android:layout_height="@dimen/image_edit_color_wh_2"
+                            android:background="@drawable/image_edit_color_c6" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_btn2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:background="#2A2A2A" >
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="80dip"
+            android:layout_height="50dip"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="取消"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_see"
+            android:layout_width="80dip"
+            android:layout_height="50dip"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="预览"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="80dip"
+            android:layout_height="50dip"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="发送"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

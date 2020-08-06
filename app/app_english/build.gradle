@@ -1,0 +1,6 @@
+apply from: '../app.gradle'
+//android {
+//}
+//dependencies {
+//    implementation project(':template:template_ldjg')
+//}
