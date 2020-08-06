@@ -13,9 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.openxu.english.MyApplication;
 import com.openxu.english.R;
-import com.openxu.english.utils.SharedPrefData;
 
 
 public class MainTitleView extends RelativeLayout{

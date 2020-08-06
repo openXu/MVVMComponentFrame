@@ -64,11 +64,6 @@ public class Property {
 	public static final int VALUE_PF_1 = 1;   //天蓝
 	public static final int VALUE_PF_2 = 2;   //草绿
 	public static final int VALUE_PF_3 = 3;   //草绿
-	public static final int VALUE_PF_4 = 4;   //草绿
-	public static final int VALUE_PF_5 = 5;   //草绿
-	public static final int VALUE_PF_6 = 6;   //草绿
-	public static final int VALUE_PF_7 = 7;   //草绿
-	public static final int VALUE_PF_8 = 8;   //草绿
 	public static final int VALUE_LEVEL_G = 10;
 	public static final int VALUE_LEVEL_4 = 20;
 	public static final int VALUE_LEVEL_6 = 30;

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string-array name="fanyiType">
+	    <item >语言自动检测</item>
+	    <item >中文  ->  粤语</item>
+	    <item >中文  ->  英语</item>
+	    <item >英语  ->  中文</item>
+	    <item >中文  ->  日语</item>
+	    <item >日语  ->  中文</item>
+	    <item >中文  ->  韩语</item>
+	    <item >韩语  ->  中文</item>
+	    <item >中文  ->  法语</item>
+	    <item >法语  ->  中文</item>
+	    <item >中文  ->  德语</item>
+	    <item >德语  ->  中文</item>
+	    <item >中文  ->  西班牙语</item>
+	    <item >西班牙语  ->  中文</item>
+	</string-array>
+</resources>

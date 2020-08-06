@@ -1,6 +1,10 @@
-include ':app:app_vedio'
-include ':app:app_run'
-include ':app:app_english'
+include ':app:app_singlemd'
+include ':module:module_pf'
+include ':module:module_fanyi'
 include ':library:library_core',
-        ':library:library_frame',
+        ':library:library_frame'
+include ':module:module_xftts'    //讯飞语音合成模块
+include ':app:app_vedio',
+        ':app:app_english',
+        ':app:app_run',
         ':app:app_test'

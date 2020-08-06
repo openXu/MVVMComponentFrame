@@ -92,6 +92,7 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     //依赖基础库
     implementation project(':library:library_frame')
     //每个组件中依赖阿里路由编译框架

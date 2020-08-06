@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- actionbar -->
+    <color name="actionbar_text_color">#ffffff</color>          <!-- 白色 -->
+    <color name="actionbar_text_color1">#000000</color>          <!-- 黑色 -->
+	<color name="sub_line">#d9d9d9</color>
+	<!-- 全局默认颜色 -->
+	<color name="bg_gray">#f4f2f3</color>              <!-- 背景灰色 -->
+	<color name="color_tran">#00000000</color>
+	<color name="color_white">#ffffff</color>          <!-- 白色 -->
+	<color name="color_tran_white">#aaffffff</color>   <!-- 白色 -->
+    <color name="color_black">#000000</color>          <!-- 黑色 -->
+    <color name="text_color_gay">#a1a3a6</color>       <!-- 银鼠 -->
+    <color name="text_color_gay1">#A8B0B9</color>       <!-- 深色背景下的灰色字体 -->
+	<color name="edittext_hint">#d3d7d4</color> 
+    <!-- 主界面MainActivity -->
+    <color name="ldrawer_arrowcolor">#FFFFFF</color>
+    <color name="title_bg_nom">#fffef9</color><!-- 胡粉色 -->
+ 	<color name="title_bg_pres">#f6f5ec</color><!-- 生成色 -->
+
+<!--     <color name="list_item_nomal">#FFFFFF</color>
+    <color name="list_item_pres">#f3f4f3</color> -->
+    <!-- 皮肤1 主色调 天蓝#4AC2E3-->
+    <color name="pf1_item_selector_color">#D7F2F9</color>  <!-- 全局item淡色点击背景 -->
+    <color name="pf1_btn_color1">#4AC2E3</color>           <!-- ~ -->
+    <color name="pf1_btn_color2">#45B8E3</color>
+	<color name="pf1_title_bg">#4AC2E3</color>             <!-- ~标题背景 --> <!-- 标题item点击 -->
+	<color name="pf1_title_item_bg">#45B8E3</color>       
+    <color name="pf1_regist_line_color">#5DE6E3</color>    <!-- 注册、找回密码线条 -->
+    <color name="pf1_regist_btn_color1">#4AC2E3</color> 
+    <color name="pf1_regist_btn_color2">#45B8E3</color>
+	<color name="pf1_login_bg_color1">#46BAE3</color>      <!-- 登录界面背景 -->
+	<color name="pf1_login_bg_color2">#63f3e3</color>
+	<color name="pf1_login_btn_text">#52D2E3</color>
+	<color name="pf1_main_item_bg1">#50CEE3</color>        <!-- 主界面item选择 -->
+	<color name="pf1_main_item_bg2">#4AC2E3</color>
+	<color name="pf1_main_title_text_color">#99ffffff</color>
+	<color name="pf1_main_bookitem_bg">#50CEE3</color>
+	<color name="pf1_round_color">#63f3e3</color>          <!-- 圆圈进度 -->
+	<color name="pf1_sents_en_color">#4AC2E3</color>       <!-- 例句关键字颜色 -->
+	<color name="pf1_word_sort">#63f3e3</color>            <!-- 单词排序-->
+	<color name="pf1_ad_bg">#224AC2E3</color>                <!-- 广告背景-->
+	<color name="pf1_ad_text_color">#50CEE3</color>        <!-- 广告字体-->
+	
+	<!-- 皮肤2 主色调 草绿#53CAC3-->
+    <color name="pf2_item_selector_color">#D8F3F2</color>  <!-- 全局item淡色点击背景 -->
+    <color name="pf2_btn_color1">#53CAC3</color>           <!-- 全局按钮按下 -->
+    <color name="pf2_btn_color2">#5EDDBF</color>
+	<color name="pf2_title_bg">#53CAC3</color>             <!-- ~标题背景 --> <!-- 标题item点击 -->
+	<color name="pf2_title_item_bg">#5EDDBF</color>       
+    <color name="pf2_regist_line_color">#72FEB9</color>    <!-- 注册、找回密码线条 -->
+    <color name="pf2_regist_btn_color1">#53CAC3</color>    <!-- 注册、找回密码按钮按下 -->
+    <color name="pf2_regist_btn_color2">#5EDDBF</color>
+	<color name="pf2_login_bg_color1">#53CAC3</color>      <!-- 登录界面背景 -->
+	<color name="pf2_login_bg_color2">#73FFB9</color>
+	<color name="pf2_login_btn_text">#64E7BD</color>
+	<color name="pf2_main_item_bg1">#62E3BE</color>        <!-- 主界面item选择 -->
+	<color name="pf2_main_item_bg2">#5BD7C0</color>
+	<color name="pf2_main_title_text_color">#99ffffff</color>
+	<color name="pf2_main_bookitem_bg">#62E3BE</color>
+	<color name="pf2_round_color">#73FFB9</color>          <!-- 圆圈进度 -->
+	<color name="pf2_sents_en_color">#53CAC3</color>       <!-- 例句关键字颜色 -->
+	<color name="pf2_word_sort">#53CAC3</color>            <!-- 单词排序-->
+	<color name="pf2_ad_bg">#2253CAC3</color>                <!-- 广告背景-->
+	<color name="pf2_ad_text_color">#53CAC3</color>        <!-- 广告字体-->
+    
+    <!-- 皮肤3 主色调 粉红-->
+    <color name="pf3_item_selector_color">#FCDADE</color>  <!-- 全局item淡色点击背景 -->
+    <color name="pf3_btn_color1">#f15b6c</color>           <!-- 全局按钮按下 -->
+    <color name="pf3_btn_color2">#CB5773</color>
+	<color name="pf3_title_bg">#f15b6c</color>             <!-- ~标题背景 --> <!-- 标题item点击 -->
+	<color name="pf3_title_item_bg">#CB5773</color>       
+    <color name="pf3_regist_line_color">#f15b6c</color>    <!-- 注册、找回密码线条 -->
+    <color name="pf3_regist_btn_color1">#f15b6c</color>    <!-- 注册、找回密码按钮按下 -->
+    <color name="pf3_regist_btn_color2">#CB5773</color>
+	<color name="pf3_login_bg_color1">#f15b6c</color>      <!-- 登录界面背景 -->
+	<color name="pf3_login_bg_color2">#2b4490</color>
+	<color name="pf3_login_btn_text">#854F80</color>
+	<color name="pf3_main_item_bg1">#FF6666</color>        <!-- 主界面item选择 -->
+	<color name="pf3_main_item_bg2">#FF9999</color>
+	<color name="pf3_main_title_text_color">#99ffffff</color>
+	<color name="pf3_main_bookitem_bg">#FF6666</color>
+	<color name="pf3_round_color">#E65A6F</color>          <!-- 圆圈进度 -->
+	<color name="pf3_sents_en_color">#f15b6c</color>       <!-- 例句关键字颜色 -->
+	<color name="pf3_word_sort">#f15b6c</color>            <!-- 单词排序-->
+	<color name="pf3_ad_bg">#22f15b6c</color>                <!-- 广告背景-->
+	<color name="pf3_ad_text_color">#854F80</color>        <!-- 广告字体-->
+    
+    
+    <!-- chat -->
+    <color name="base_actionbar_bg">#f5f5f5</color>
+    <color name="base_action_bar_title_color">#2f2725</color>
+    <color name="base_tab_indicator_text_color">#f82c22</color>
+    <color name="base_menu_left_bg">#393c44</color>
+    <color name="pull_refresh_textview">#000000</color>
+    <color name="base_color_text_black">#3e3e39</color>
+    <color name="base_color_text_gray">#9fa0a0</color>
+    <color name="base_color_text_white">#ffffff</color>
+    <color name="home_item_color_bg">#f4f6f6</color>
+    <color name="base_bg">#f4f6f6</color>
+    <!-- zxing -->
+    <color name="color_half_transparent">#b0000000</color>
+    <color name="color_transparent_bg">#80000000</color>
+    <color name="color_transparent_bg1">#e0000000</color>
+    <!-- emot -->
+    <color name="msg_emote_divider">#ffa1a1a1</color>
+    <color name="color_bottom_bg">#272a2e</color>
+    <color name="color_bottom_text_normal">#9da0a4</color>
+    <color name="color_bottom_text_press">#4f9ef6</color>
+    <color name="text_gray">#969696</color>
+    <color name="transparent">#00000000</color>
+    <color name="msg_chat_bg">#eceff4</color>
+    
+    <color name="theme_bg_color">#f0f2f5</color>
+    <color name="color_theme">#489cfa</color>
+    <color name="c_f98800">#ed4e23</color>
+    <color name="dialog_color_title">#f82c22</color>
+    <color name="guide_color">#898989</color>
+    <color name="common_bg">#fcfcfc</color>
+    
+    
+    <!-- imageEdit -->
+    <color name="image_edit_c1">#FF3021</color>
+    <color name="image_edit_c2">#FD7F32</color>
+    <color name="image_edit_c3">#FFE00D</color>
+    <color name="image_edit_c4">#85E81B</color>
+    <color name="image_edit_c5">#1792F9</color>
+    <color name="image_edit_c6">#B00ECD</color>
+    
+</resources>

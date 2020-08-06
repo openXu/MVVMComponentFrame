@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 实心 -->
+    <solid android:color="@color/pf3_item_selector_color" />
+    <corners
+        android:radius="5dip"/>
+</shape>

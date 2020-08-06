@@ -10,16 +10,38 @@
 AndroidX是Android发展的趋势，google已经退出几年了，很多公司已经将项目迁移到AndroidX
 
 
-
 ## 2. 框架概述
 
-![](https://github.com/openXu/MVVMComponentFrame/blob/master/a_image/%E6%9E%B6%E6%9E%84.png)
+**注意：**github上图片看不了，请修改`C:\Windows\System32\drivers\etc\hosts`添加如下内容：
+
+```xml
+# GitHub Start 
+192.30.253.112    Build software better, together 
+192.30.253.119    gist.github.com
+151.101.184.133    assets-cdn.github.com
+151.101.184.133    raw.githubusercontent.com
+151.101.184.133    gist.githubusercontent.com
+151.101.184.133    cloud.githubusercontent.com
+151.101.184.133    camo.githubusercontent.com
+151.101.184.133    avatars0.githubusercontent.com
+151.101.184.133    avatars1.githubusercontent.com
+151.101.184.133    avatars2.githubusercontent.com
+151.101.184.133    avatars3.githubusercontent.com
+151.101.184.133    avatars4.githubusercontent.com
+151.101.184.133    avatars5.githubusercontent.com
+151.101.184.133    avatars6.githubusercontent.com
+151.101.184.133    avatars7.githubusercontent.com
+151.101.184.133    avatars8.githubusercontent.com
+ # GitHub End
+```
+
+![架构图](https://github.com/openXu/MVVMComponentFrame/blob/master/a_image/%E6%9E%B6%E6%9E%84.png)
 
 该框架将项目拆分为多个模块，根据模块性质可对其分层，从下到上分别为**基础库层**、**组件层**、**基础层**、**模块层**、"模板层"、"应用层"。分层的结构有利于项目模块化管理，使得框架易于扩展和维护，避免因为项目数量和体量的增加导致代码纵横交错不便管理。
 
 ### 2.1 基础库层
 
-该层主要指框架中依赖的一些优秀的开源库或者google官方库，其配置在根目录下`conf_lib.gradle`中，然后根据类库性质在不同的module下添加依赖。为了保证架构清晰，应该尽量遵守这一规则，当然也不是强求的，在充分了解框架后，可以根据自己需求做灵活变动，重要的是理解这种设计的意义。
+该层主要指框架中依赖的一些优秀的开源库或者google官方库，其配置下`conf_lib.gradle`中，然后根据类库性质在不同的module下添加依赖。为了保证架构清晰，应该尽量遵守这一规则，当然也不是强求的，在充分了解框架后，可以根据自己需求做灵活变动，重要的是理解这种设计的意义。
 
 比如[AndroidX](https://developer.android.google.cn/jetpack)、[RxJava](https://github.com/ReactiveX/RxJava)、[ARouter](https://github.com/alibaba/ARouter/blob/master/README_CN.md)等这些几乎所有项目都需要，而且内容不太多的类库，我们在**library_core**组件下依赖。而一些内容较多需要二次开发且功能单一的，通常需要新建一个组件**library_xxx**，相关依赖在对应组件中添加，详情请看下面组件层说明。
 
