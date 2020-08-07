@@ -189,7 +189,7 @@ public class NetworkManager {
         return new RequstBuilder(tClass);
     }
 
-    public class RequstBuilder<T> {
+    public class RequstBuilder<S> {
        public int method;   //请求方式
         public XBaseViewModel viewModel;   //ViewModel用于同步请求生命周期
         public String url;    //url
@@ -203,8 +203,8 @@ public class NetworkManager {
         public String downloadFilePath;   //文件缓存路径
         private String operUrl;//指定服务器存放附件的位置
         public List<Atta> fileList;
-        Class<T> tClass;
-        private RequstBuilder(Class<T> tClass){
+        Class<S> tClass;
+        private RequstBuilder(Class<S> tClass){
             this.tClass = tClass;
         }
 
@@ -254,7 +254,7 @@ public class NetworkManager {
             return this;
         }
 
-       public T build() {
+       public S build() {
            return retrofit.create(tClass);
            /* service = retrofit.create(serviceClazz)
                     .rxGet(builder.url, builder.params)
