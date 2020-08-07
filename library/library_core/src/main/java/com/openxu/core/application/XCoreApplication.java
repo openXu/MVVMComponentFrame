@@ -15,20 +15,20 @@ public class XCoreApplication extends Application {
 
 
     private static Context mcontext;
-    protected static XCoreApplication application;
+//    protected static XCoreApplication application;
 
     @Override
     public void onCreate() {
-        application = this;
+//        application = this;
         mcontext = getApplicationContext();
         super.onCreate();
         //初始化类库
         XAppInitManager.init(this);
     }
 
-    public static XCoreApplication getApplication() {
-        return application;
-    }
+//    public static XCoreApplication getApplication() {
+//        return application;
+//    }
     public static Context getContext() {
         return mcontext;
     }

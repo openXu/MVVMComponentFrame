@@ -32,6 +32,8 @@ public class AppConfig {
     public static final String appFileRoot = BuildConfig.appFileRoot;
     ////Application初始化类，使用,分割
     public static final String applicationInitClass = BuildConfig.applicationInitClass;
+    //接口基础部分
+    public static final String baseUrl = BuildConfig.baseUrl;
 
 
      public static String deviceID;

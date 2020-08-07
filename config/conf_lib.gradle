@@ -1,6 +1,7 @@
 ext {
 
     lifecycle_version = "2.2.0"
+    rxjava_version = "3.0.0"
 
     libdependencies = [
         /**★★★下面的依赖是框架自带的依赖，请不要删除*/
@@ -27,8 +28,8 @@ ext {
         "converter"           : "com.squareup.retrofit2:converter-gson:2.3.0",   //数据解析器
         "adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",   //网络请求适配器
         //RxJava
-        'rxjava'           :   'io.reactivex.rxjava3:rxjava:3.0.0',
-        'rxandroid'           :   'io.reactivex.rxjava3:rxandroid:3.0.0',
+        'rxjava'              : "io.reactivex.rxjava3:rxjava:$rxjava_version",
+        'rxandroid'           : "io.reactivex.rxjava3:rxandroid:$rxjava_version",
         //RxJava内存泄漏
         "autodispose"         : "com.uber.autodispose:autodispose-android-archcomponents:1.1.0",
         //ARouter路由

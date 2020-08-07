@@ -290,8 +290,15 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
         sign = XMD5Utils.md5(sign);
         XLog.v(sign);
         //http://api.fanyi.baidu.com/api/trans/vip/translate?q=hello&appid=2015063000000001&salt=1435660288&from=en&to=zh&sign=2f7b6bfb034a64a978707bd303d20cce
-        String urlStr = FanyiConstant.URL_BAIDU_FANYI_NEW +"&salt="+salt+"&sign="+sign+ "&str=" + str+ "&from="+from+"&to="+to;
-        viewModel.fanyi(urlStr);
+        String urlStr = FanyiConstant.URL_BAIDU_FANYI_NEW +"&salt="+salt+"&sign="+sign+ "&q=" + str+ "&from="+from+"&to="+to;
+        Map<String, String> params = new HashMap<>();
+        params.put("appid", FanyiConstant.APP_ID);
+        params.put("salt", salt+"");
+        params.put("sign", sign);
+        params.put("q", str);
+        params.put("from", from);
+        params.put("to", to);
+        viewModel.fanyi(FanyiConstant.URL_BAIDU_FANYI_NEW, params);
 //        viewModel.fanyi(type, from, to, to_zh);
     }
     private String from = "";

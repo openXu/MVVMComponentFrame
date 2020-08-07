@@ -17,7 +17,7 @@
 
 	<application>
 		<!--用于承载Fragment页面的Activity，在开发过程中，我们使用Fragment代替Activity，避免清单文件需要对activity注册-->
-		<activity android:name=".base.FragmentActivity"
+		<activity android:name=".base.XFragmentActivity"
 				android:configChanges="orientation|screenSize|keyboardHidden"
 				android:screenOrientation="portrait"
 				android:windowSoftInputMode="stateHidden|adjustResize" />

@@ -58,7 +58,67 @@ Map<String, String> getConfigMap_test() {
 }
 ```
 
-## 2.1 
+## 2.2 第一个页面
+
+### XBaseActivity
+
+### XBaseFragment
 
 
- 
+### 
+
+## 2.3 网络请求
+
+
+
+
+
+
+# 3. 项目运行
+
+`app`、`templete`、`module`目录下的模块都能运行，具体操作如下
+
+## 3.1 独立模块运行
+
+在开发项目时，根据业务将项目划分为多个模块，当我们在开发某个模块时可以通过运行**app_singlemd**对模块进行调试，节省编译和运行速度。
+
+首先应该在**app_singlemd**的`build.gradle`中添加模块的依赖，比如下面我们要调试翻译模块：
+
+```xml
+apply from: '../app.gradle'
+dependencies {
+    implementation project(':module:module_fanyi')
+}
+```
+
+然后在`com.openxu.single.SplashActivity`中设置需要调试模块的入口页面路由：
+
+```Java
+public class SplashActivity extends XBaseActivity<ActivitySplashBinding, XBaseViewModel> {
+    @Override
+    public int getContentView(Bundle savedInstanceState) {
+        return R.layout.activity_splash;
+    }
+    @Override
+    public void initView() {
+        /**★★★设置调试模块入口页面路由*/
+        XFragmentActivity.start(this,
+                ARouter.getInstance().build(RouterPathFanyi.PAGE_FRAGMENT_FANYI));
+    }
+    @Override
+    public void registObserve() {
+    }
+    @Override
+    public void initData() {
+    }
+}
+```
+
+最后修改`conf_app.gradle`，运行**app_singlemd**即可：
+
+```xml
+ext {
+    appTypeStr = "TYPE_ALONG"
+    ...
+```
+

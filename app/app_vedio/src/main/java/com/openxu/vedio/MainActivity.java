@@ -5,8 +5,7 @@ import android.content.Intent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.google.gson.Gson;
-import com.openxu.core.base.FragmentActivity;
+import com.openxu.core.base.XFragmentActivity;
 import com.openxu.core.base.XBaseListActivity;
 import com.openxu.core.base.XBaseViewModel;
 import com.openxu.core.base.adapter.CommandItemDecoration;
@@ -14,8 +13,6 @@ import com.openxu.core.databinding.CoreActivityBaseListBinding;
 import com.openxu.vedio.ui.MediaPlayerActivity;
 import com.openxu.vedio.ui.VedioViewActivity;
 
-import java.io.InputStream;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,13 +56,13 @@ public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding,
             /*FragmentActivity.start(this,
                     ARouter.getInstance().build(RouterPathVedio.PAGE_IJKPLAYER));*/
         }else if(position==3){
-            FragmentActivity.start(this,
+            XFragmentActivity.start(this,
                     ARouter.getInstance().build(RouterPathVedio.PAGE_IJKPLAYER));
         }else if(position==4){
-            FragmentActivity.start(this,
+            XFragmentActivity.start(this,
                     ARouter.getInstance().build(RouterPathVedio.PAGE_VITAMIO));
         }else if(position==5){
-            FragmentActivity.start(this,
+            XFragmentActivity.start(this,
                     ARouter.getInstance().build(RouterPathVedio.PAGE_WEBVIEW));
         }
     }

@@ -16,7 +16,9 @@ import com.openxu.core.utils.XLog;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 /**
  * Author: openXu
@@ -67,10 +69,10 @@ import io.reactivex.disposables.CompositeDisposable;
  * LifecycleObserver：生命周期观察者，比如LiveData。他用来观测LifecycleOwner，并在LifecycleOwner生命周期变化时收到通知。
  *
  */
-public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel {
+public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel, Consumer<Disposable> {
 
     //一个一次性容器，可以容纳多个其他一次性物品，并提供O（1）添加和移除的复杂性。
-    public CompositeDisposable mDisposable = new CompositeDisposable();
+    public CompositeDisposable mCompositeDisposable;
     public MutableLiveData<Boolean> listNetError = new MutableLiveData<>();   //列表页网络请求失败
 
     public XBaseViewModel(@NonNull Application application) {
@@ -106,6 +108,14 @@ public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel {
     public void finish(int resultCode, Intent intent){
         getUIEvent().event_finish.setValue(new XActivityResult(resultCode,intent));
     }
+
+    @Override
+    public void accept(Disposable disposable) throws Throwable {
+        if(mCompositeDisposable==null)
+            mCompositeDisposable = new CompositeDisposable();
+        mCompositeDisposable.add(disposable);
+    }
+
     /**
      * 充当ViewModel和UI(Activity or Fragment)的锲约，相当于MVP中的IView。
      * 实现在ViewModel中调用UI的方法
@@ -145,6 +155,8 @@ public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
+        if(mCompositeDisposable==null)
+            mCompositeDisposable.clear();
         XLog.i("viewmodel释放资源，终止网络请求");
     }
 

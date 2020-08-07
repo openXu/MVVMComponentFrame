@@ -11,6 +11,7 @@ android {
             buildConfigField "String", "appType", rootProject.ext.appType
             buildConfigField "String", "appFileRoot", rootProject.ext.appFileRoot
             buildConfigField "String", "applicationInitClass", rootProject.ext.applicationInitClass
+            buildConfigField "String", "baseUrl", rootProject.ext.baseUrl
         }
         debug {
             minifyEnabled false
@@ -19,6 +20,7 @@ android {
             buildConfigField "String", "appType", rootProject.ext.appType
             buildConfigField "String", "appFileRoot", rootProject.ext.appFileRoot
             buildConfigField "String", "applicationInitClass", rootProject.ext.applicationInitClass
+            buildConfigField "String", "baseUrl", rootProject.ext.baseUrl
         }
     }
 }
@@ -58,7 +60,6 @@ dependencies {
     api rootProject.ext.libdependencies["gson"]
     api rootProject.ext.libdependencies["glide"]
     api rootProject.ext.libdependencies["rxbus"]
-
 }
 
 //强制指定依赖版本，避免冲突
@@ -67,8 +68,12 @@ configurations.all {
         def requested = details.requested
         if (requested.group == 'androidx.lifecycle') {
             if (requested.name.startsWith("lifecycle-runtime")) {
-                details.useVersion '2.2.0'
+                details.useVersion rootProject.ext.lifecycle_version
             }
+        }else if(requested.group == 'io.reactivex.rxjava3'){
+            details.useVersion rootProject.ext.rxjava_version
+//            'rxjava'              : "io.reactivex.rxjava3:rxjava:$rxjava_version",
+//            'rxandroid'           : "io.reactivex.rxjava3:rxandroid:$rxjava_version",
         }
     }
 }
