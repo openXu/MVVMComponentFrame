@@ -19,15 +19,15 @@ import okhttp3.ResponseBody;
  *          其实真正解析数据是一个工具类完成的，该Function的作用是将解析数据的动作放到RxJava流中处理，在业务使用时直接能得到想要的结果数据。
  *
  */
-public class ParseDataFunction implements Function<ResponseBody, XResponse> {
+public class ParseDataFunction<T> implements Function<ResponseBody, XResponse<T>> {
     private Class dataClass;
 //    private NetworkManager.RequstBuilder builder;
 
-    public ParseDataFunction(Class dataClass/*, NetworkManager.RequstBuilder builder*/) {
+    public ParseDataFunction(Class<T> dataClass/*, NetworkManager.RequstBuilder builder*/) {
         this.dataClass = dataClass;
     }
     @Override
-    public XResponse apply(ResponseBody responseBody) throws Exception {
+    public XResponse<T> apply(ResponseBody responseBody) throws Exception {
         String result = responseBody.string();
         XLog.i("返回数据：" + result);
         Gson gson = new Gson();

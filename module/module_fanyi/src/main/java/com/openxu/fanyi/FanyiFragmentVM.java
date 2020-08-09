@@ -40,10 +40,10 @@ public class FanyiFragmentVM extends XBaseViewModel {
         NetworkManager.getInstance().create(ApiService.class)
                 .build()
                 .rxGetAllPath(url, map)
-                .compose(XTransformer.baseTransformer(new ParseDataFunction(Fanyi.class)))
-                .subscribe(new Consumer<XResponse>() {
+                .compose(new XTransformer<Fanyi>().baseTransformer(new ParseDataFunction(Fanyi.class)))
+                .subscribe(new Consumer<XResponse<Fanyi>>() {
                     @Override
-                    public void accept(XResponse o) throws Exception {
+                    public void accept(XResponse<Fanyi> o) throws Exception {
                         XLog.d("请求数据结果："+o);
                     }
                 });
