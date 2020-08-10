@@ -15,13 +15,9 @@ import com.openxu.core.config.AppConfig;
 public class AppInitLogic extends XBaseAppLogic {
     @SuppressLint("RestrictedApi")
     @Override
-    public void onCreate(String processName) {
-        super.onCreate(processName);
+    public void onApplicationCreate(String processName) {
         if (processName.equals(AppConfig.appId)) {
         }
     }
-
-
-
 
 }

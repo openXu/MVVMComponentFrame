@@ -9,7 +9,7 @@ import com.openxu.core.utils.toasty.XToast;
  * class: BaseCallback
  * Description:
  */
-public class BaseCallback {
+public class BaseCallback<T> {
 
     public void onFail(String message) {
         XToast.error(message);

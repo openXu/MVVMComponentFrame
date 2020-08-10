@@ -36,12 +36,16 @@ public interface ApiService {
      */
     @GET
     Call<ResponseBody> doGet(@Url String url, @QueryMap Map<String, String> map);
-
+    /**
+     * 1. get请求
+     * @param url 请求路径，可传全路径比如http://api.fanyi.baidu.com/api/trans/vip/translate?appid=xxx
+     *            也可相对路径api/trans/vip/translate，但是必须在conf_app.gradle中设置baseUrl = http://api.fanyi.baidu.com/
+     * @param map 请求参数map
+     * @return
+     */
     @GET
     Observable<ResponseBody> rxGet(@Url String url, @QueryMap Map<String, String> map);
 
-    @GET
-    Observable<ResponseBody> rxGetAllPath(@Url String url, @QueryMap Map<String, String> map);
 
     /**
      *          MediaType textType = MediaType.parse("text/plain");

@@ -2,12 +2,11 @@ package com.openxu.single;
 
 import android.os.Bundle;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.openxu.chaxun.RouterPathChaxun;
 import com.openxu.core.base.XBaseActivity;
 import com.openxu.core.base.XBaseViewModel;
 import com.openxu.core.base.XFragmentActivity;
-import com.openxu.fanyi.RouterPathFanyi;
 import com.openxu.single.databinding.ActivitySplashBinding;
 
 /**
@@ -25,7 +24,7 @@ public class SplashActivity extends XBaseActivity<ActivitySplashBinding, XBaseVi
     public void initView() {
         /**★★★设置调试模块入口页面路由*/
         XFragmentActivity.start(this,
-                ARouter.getInstance().build(RouterPathFanyi.PAGE_FRAGMENT_FANYI));
+                ARouter.getInstance().build(RouterPathChaxun.PAGE_FRAGMENT_CHAXUN));
     }
     @Override
     public void registObserve() {

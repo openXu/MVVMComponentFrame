@@ -16,9 +16,10 @@ import com.openxu.core.utils.XLog;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+
 
 /**
  * Author: openXu
@@ -69,7 +70,7 @@ import io.reactivex.rxjava3.functions.Consumer;
  * LifecycleObserver：生命周期观察者，比如LiveData。他用来观测LifecycleOwner，并在LifecycleOwner生命周期变化时收到通知。
  *
  */
-public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel, Consumer<Disposable> {
+public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel{
 
     //一个一次性容器，可以容纳多个其他一次性物品，并提供O（1）添加和移除的复杂性。
     public CompositeDisposable mCompositeDisposable;
@@ -107,13 +108,6 @@ public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel, 
     }
     public void finish(int resultCode, Intent intent){
         getUIEvent().event_finish.setValue(new XActivityResult(resultCode,intent));
-    }
-
-    @Override
-    public void accept(Disposable disposable) throws Throwable {
-        if(mCompositeDisposable==null)
-            mCompositeDisposable = new CompositeDisposable();
-        mCompositeDisposable.add(disposable);
     }
 
     /**

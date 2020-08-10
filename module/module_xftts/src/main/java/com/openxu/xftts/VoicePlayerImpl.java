@@ -15,11 +15,20 @@ import com.openxu.core.utils.toasty.XToast;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 讯飞语言开放平台 http://www.xfyun.cn/
+ * 2、sdk集成指南
+ * https://www.xfyun.cn/doc/tts/online_tts/Android-SDK.html#_1%E3%80%81%E7%AE%80%E4%BB%8B
+ * APPID 56318429
+ * APISecret 11d69745b46bffbf3e3f8123eb2897a6
+ * APIKey 9c0c1d518d3e3851ef0efcfe65fccb94
+ */
 public class VoicePlayerImpl {
 
 	private SpeechSynthesizer mTts;
 	private Context context;
 	public final String XUNFEI_APPID = "56318429";
+
 	private String voiceMan = "xiaoyan";
 	private Map<String, String> voiceMap;
 	private String TAG  =  "VoicePlayerImpl";

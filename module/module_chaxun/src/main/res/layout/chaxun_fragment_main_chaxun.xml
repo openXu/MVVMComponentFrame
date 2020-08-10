@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:openxu="http://schemas.android.com/apk/res-auto">
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:openxu="http://schemas.android.com/apk/res/com.openxu.english"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/linearLayout2"
+                android:background="@color/bg_gray"
+                android:orientation="vertical" >
+
+            <!-- 将title高度留出来 -->
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                <LinearLayout
+                        android:id="@+id/ll_top"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/title_hight" />
+            </LinearLayout>
+
+            <RelativeLayout
+                    android:id="@+id/rl_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="20dip"
+                    android:background="@drawable/fanyi_shape_bg" >
+
+                <EditText
+                        android:id="@+id/et_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_toLeftOf="@+id/ll_search"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入查询内容"
+                        android:imeOptions="actionSearch"
+                        android:maxLines="1"
+                        android:paddingLeft="10dip"
+                        android:paddingRight="5dip"
+                        android:singleLine="true"
+                        android:textColor="@color/color_black"
+                        android:textColorHint="#cccccc"
+                        android:textSize="@dimen/text_size_16" />
+
+                <ImageView
+                        android:id="@+id/iv_xx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dip"
+                        android:layout_toLeftOf="@+id/ll_search"
+                        android:src="@drawable/open_fanyi_clear_selector" />
+
+                <LinearLayout
+                        android:id="@+id/ll_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="0.5sp"
+                        android:background="@drawable/open_shape_chaci_serch_bag"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="18dip"
+                        android:paddingRight="18dip" >
+
+                    <ImageView
+                            android:layout_width="20dip"
+                            android:layout_height="20dip"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/open_chaci_icon_search" />
+                </LinearLayout>
+            </RelativeLayout>
+            <!-- 输入提示 -->
+
+            <ListView
+                    android:id="@+id/lv_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="76dip"
+                    android:layout_marginTop="3dip"
+                    android:background="@drawable/open_shape_chaci_hint_bag"
+                    android:visibility="gone" />
+            <!-- 历史记录 -->
+
+            <com.openxu.chaxun.view.LineBreakLayout
+                    android:id="@+id/ll_history"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="20dip"
+                    android:visibility="gone" />
+
+            <LinearLayout
+                    android:id="@+id/ll_searching"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:layout_marginRight="20dip"
+                    android:layout_marginTop="20dip"
+                    android:background="@drawable/fanyi_shape_bg"
+                    android:orientation="vertical"
+                    android:visibility="visible" >
+
+                <TextView
+                        android:id="@+id/tv_searching"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dip"
+                        android:singleLine="true"
+                        android:text="正在查询..."
+                        android:textColor="@color/text_color_gay"
+                        android:textSize="15sp" />
+            </LinearLayout>
+
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent" >
+
+                <LinearLayout
+                        android:id="@+id/ll_content_english"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="20dip"
+                        android:background="@drawable/fanyi_shape_bg"
+                        android:orientation="vertical"
+                        android:visibility="visible" >
+
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dip"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginRight="20dip"
+                            android:layout_marginTop="20dip" >
+
+                        <TextView
+                                android:id="@+id/tv_english"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="english"
+                                android:textSize="23sp"
+                                android:textStyle="bold" />
+
+                        <FrameLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_english"
+                                android:layout_marginTop="10dip" >
+
+                            <ImageView
+                                    android:id="@+id/iv_local_voice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/open_renwu_say_selector" />
+
+                            <LinearLayout
+                                    android:id="@+id/ll_ph"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal" >
+
+                                <ImageView
+                                        android:id="@+id/iv_ph_en"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignTop="@+id/tv_english"
+                                        android:layout_marginRight="5dip"
+                                        android:src="@drawable/open_renwu_say_selector" />
+
+                                <TextView
+                                        android:id="@+id/tv_ph_en"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:singleLine="true"
+                                        android:text=""
+                                        android:textColor="@color/text_color_gay"
+                                        android:textSize="15sp" />
+
+                                <TextView
+                                        android:id="@+id/tv_ph_line"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dip"
+                                        android:layout_marginRight="5dip"
+                                        android:singleLine="true"
+                                        android:text="/"
+                                        android:textColor="@color/text_color_gay"
+                                        android:textSize="15sp" />
+
+                                <ImageView
+                                        android:id="@+id/iv_ph_am"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_alignTop="@+id/tv_english"
+                                        android:src="@drawable/open_renwu_say_selector" />
+
+                                <TextView
+                                        android:id="@+id/tv_ph_am"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dip"
+                                        android:singleLine="true"
+                                        android:text=""
+                                        android:textColor="@color/text_color_gay"
+                                        android:textSize="15sp" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <ImageView
+                                android:id="@+id/iv_love"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignTop="@+id/tv_english"
+                                android:src="@mipmap/love_1" />
+                    </RelativeLayout>
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5sp"
+                            android:layout_marginLeft="5dip"
+                            android:layout_marginRight="5dip"
+                            android:background="#d7d7d7" />
+
+                    <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="20dip"
+                                android:paddingTop="20dip" >
+
+                            <TextView
+                                    android:id="@+id/tv_parts"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                            <TextView
+                                    android:id="@+id/tv_exchange"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:layout_marginTop="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp"
+                                    android:textStyle="italic" />
+
+                            <TextView
+                                    android:id="@+id/tv_sent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:layout_marginTop="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/color_black"
+                                    android:textSize="15sp"
+                                    android:textStyle="italic" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/ll_content_china"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="20dip"
+                        android:background="@drawable/fanyi_shape_bg"
+                        android:orientation="vertical"
+                        android:visibility="gone" >
+
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dip"
+                            android:layout_marginLeft="20dip"
+                            android:layout_marginRight="20dip"
+                            android:layout_marginTop="20dip" >
+
+                        <TextView
+                                android:id="@+id/tv_zh_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="好"
+                                android:textSize="23sp"
+                                android:textStyle="bold" />
+
+                        <ImageView
+                                android:id="@+id/iv_zh_voice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginTop="10dip"
+                                android:src="@drawable/open_renwu_say_selector" />
+                    </RelativeLayout>
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5sp"
+                            android:layout_marginLeft="5dip"
+                            android:layout_marginRight="5dip"
+                            android:background="#d7d7d7" />
+
+                    <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" >
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical"
+                                android:paddingBottom="20dip"
+                                android:paddingTop="20dip" >
+
+                            <TextView
+                                    android:id="@+id/tv_zh_symbols"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/text_color_gay"
+                                    android:textSize="15sp" />
+
+                            <TextView
+                                    android:id="@+id/tv_zh_sent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dip"
+                                    android:layout_marginRight="20dip"
+                                    android:layout_marginTop="20dip"
+                                    android:lineSpacingExtra="4dip"
+                                    android:text=""
+                                    android:textColor="@color/color_black"
+                                    android:textSize="15sp"
+                                    android:textStyle="italic" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+        <!-- 广告 -->
+
+        <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal" >
+
+            <LinearLayout
+                    android:id="@+id/miniAdLinearLayout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

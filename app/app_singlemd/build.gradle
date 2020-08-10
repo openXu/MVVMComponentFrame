@@ -1,4 +1,4 @@
 apply from: '../app.gradle'
 dependencies {
-    implementation project(':module:module_fanyi')
+    implementation project(':module:module_chaxun')
 }

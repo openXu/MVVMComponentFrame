@@ -1,10 +1,15 @@
-include ':app:app_singlemd'
-include ':module:module_pf'
-include ':module:module_fanyi'
+include ':module:module_db'
 include ':library:library_core',
         ':library:library_frame'
-include ':module:module_xftts'    //讯飞语音合成模块
+
+include ':module:module_pf',
+        ':module:module_xftts',    //讯飞语音合成模块
+        ':module:module_fanyi',
+        ':module:module_chaxun'
+
+
 include ':app:app_vedio',
         ':app:app_english',
         ':app:app_run',
-        ':app:app_test'
+        ':app:app_test',
+        ':app:app_singlemd'

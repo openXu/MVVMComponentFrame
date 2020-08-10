@@ -1,0 +1,9 @@
+apply from: "../module.gradle"
+
+dependencies {
+    //皮肤
+    implementation project(':module:module_pf')
+    //讯飞语音
+    implementation project(':module:module_xftts')
+
+}

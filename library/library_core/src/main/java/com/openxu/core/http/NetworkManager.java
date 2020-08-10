@@ -3,6 +3,12 @@ package com.openxu.core.http;
 import androidx.annotation.IntDef;
 import com.openxu.core.base.XBaseViewModel;
 import com.openxu.core.config.AppConfig;
+import com.openxu.core.http.data.XResponse;
+import com.openxu.core.http.error.NetError;
+import com.openxu.core.http.rx.BaseOberver;
+import com.openxu.core.http.rx.NetErrorFunction;
+import com.openxu.core.http.rx.ParseDataFunction;
+import com.openxu.core.http.rx.RetryWhenReset;
 import com.openxu.core.utils.XLog;
 import com.openxu.core.http.callback.BaseCallback;
 import com.openxu.core.http.callback.DownloadCallback;
@@ -12,6 +18,7 @@ import com.openxu.core.http.data.Atta;
 import com.openxu.core.http.interceptor.BaseInterceptor;
 import com.openxu.core.http.interceptor.LoggerInterceptor;
 import com.openxu.core.http.util.TimeOutDns;
+import com.openxu.core.utils.toasty.XToast;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -20,6 +27,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -116,7 +129,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 public class NetworkManager {
 
     private Retrofit retrofit;
-
+    private ApiService apiService;
     private static NetworkManager INSTANCE;
 
     static {
@@ -171,6 +184,8 @@ public class NetworkManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(FzyGsonConverterFactory.create())
                 .build();
+
+        apiService = retrofit.create(ApiService.class);
     }
 
     @IntDef({Method.GET, Method.POST, Method.DOWNLOAD, Method.UPLOAD})
@@ -184,33 +199,22 @@ public class NetworkManager {
         public static final int DOWNLOAD = 3;
         public static final int UPLOAD = 4;
     }
-
-    public <T> RequstBuilder<T> create(Class<T> tClass) {
-        return new RequstBuilder(tClass);
+    public RequstBuilder build() {
+        return new RequstBuilder();
     }
-
-    public class RequstBuilder<S> {
-       public int method;   //请求方式
+    public class RequstBuilder {
         public XBaseViewModel viewModel;   //ViewModel用于同步请求生命周期
         public String url;    //url
-        public BaseCallback callback;
-        public boolean showDialog = true;          //是否显示对话框
-        public boolean postSuccessToast = true;    //post提交成功后是否Toast默认提示（ParseDataFunction提示：提交成功）
         public Map<String, String> params = new HashMap<>();   //参数
+        public BaseCallback callback;
+        public boolean showDialog = true;          //是否显示进度条
+        public boolean postSuccessToast = true;    //post提交成功后是否Toast默认提示（ParseDataFunction提示：提交成功）
         //post带实体对象
         public Object object;
         //文件下载
         public String downloadFilePath;   //文件缓存路径
-        private String operUrl;//指定服务器存放附件的位置
         public List<Atta> fileList;
-        Class<S> tClass;
-        private RequstBuilder(Class<S> tClass){
-            this.tClass = tClass;
-        }
-
-        public RequstBuilder method(@Methods int method) {
-            this.method = method;
-            return this;
+        private RequstBuilder(){
         }
 
         public RequstBuilder viewModel(XBaseViewModel viewModel) {
@@ -249,25 +253,49 @@ public class NetworkManager {
             this.fileList = fileList;
             return this;
         }
-        public RequstBuilder operUrl(String operUrl) {
-            this.operUrl = operUrl;
-            return this;
-        }
 
-       public S build() {
-           return retrofit.create(tClass);
-           /* service = retrofit.create(serviceClazz)
-                    .rxGet(builder.url, builder.params)
+        /**
+         * get请求
+         */
+        public <T> void doGet(ResponseCallback<T> callback) {
+            apiService.rxGet(url, params)
+//                .compose(new XTransformer<FanyiResult>().baseTransformer(new ParseDataFunction(FanyiResult.class)))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .map(new ParseDataFunction(((ResponseCallback) builder.callback).getDataClass(), builder))
-                    //6. retryWhen操作符在请求发生错误时进行重试，最大重试次数为4次，时间间隔100ms
-                    .retryWhen(new RetryWhenReset(4, 100))   //请求失败重试次数
-                    //7. onErrorResumeNext操作符，当重试4次后还是发生错误，将Throwable转换成我们自己封装的错误对象NetError
-                    .onErrorResumeNext(new NetErrorFunction())*/
-        }
+                    .retryWhen(new RetryWhenReset(4, 100))
+                    .map(new ParseDataFunction<T>(callback.getDataClass()))
+                    .onErrorResumeNext(new NetErrorFunction())
+                    .subscribe(new BaseOberver<T>(viewModel, showDialog) {
+                        @Override
+                        public void onNext(T response) {
+                            try {
+                                callback.onSuccess(response);
+                            } catch (Exception e) {
+                                XLog.e("：解析数据错误" + e);
+                                if (AppConfig.DEBUG) {
+                                    XToast.error("  " + url + "---" + params.toString() + "---" + e.toString());
+                                }
+                                XToast.error(e.getMessage());
+                            }
+                        }
+                        @Override
+                        public void onError(Throwable e) {
+                            XLog.e("请求数据错误：" + e);
+                            if (AppConfig.DEBUG) {
+                                callback.onFail("  " + url + "---" + params.toString() + "---" + e.toString());
+                            }
+                            callback.onFail(((NetError) e).getUserMsg());   //给用户提示的错误信息
+                            super.onError(e);
+                        }
 
-        public void build(BaseCallback callback) {
+                        @Override
+                        public void onComplete() {
+                            super.onComplete();
+                        }
+                    });
+            }
+
+   /*     public <T> void build(BaseCallback<T> callback) {
             this.callback = callback;
             if (method == Method.GET && callback instanceof ResponseCallback) {
                 doGet(this);
@@ -291,54 +319,10 @@ public class NetworkManager {
             } else {
                 throw new RuntimeException("Please set the correct callback type");
             }
-        }
+        }*/
     }
 
-    /**
-     * 普通get请求
-     * @param builder
-     */
-    private void doGet(RequstBuilder builder) {
-        /*apiService.rxGet(builder.url, builder.params)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(new ParseDataFunction(((ResponseCallback) builder.callback).getDataClass(), builder))
-                //6. retryWhen操作符在请求发生错误时进行重试，最大重试次数为4次，时间间隔100ms
-                .retryWhen(new RetryWhenReset(4, 100))   //请求失败重试次数
-                //7. onErrorResumeNext操作符，当重试4次后还是发生错误，将Throwable转换成我们自己封装的错误对象NetError
-                .onErrorResumeNext(new NetErrorFunction())
-                //8. subscribe指定观察者Observer对象
-                .subscribe(new BaseOberver<XResponse>(builder.viewModel, builder.showDialog) {
-                    @Override
-                    public void onNext(XResponse response) {
-                        //当请求成功后，回调此方法，将请求结果XResponse对象返回
-                        try {
-                            ((ResponseCallback) builder.callback).onSuccess(response.getMessage(), response.getResult());
-                        } catch (Exception e) {
-                            XLog.e("：解析数据错误" + e);
-                            if (AppConfig.DEBUG) {
-                                XToast.error("  " + builder.url + "---" + builder.params.toString() + "---" + e.toString());
-                            } else {
-                                XToast.error(e.getMessage());
-                            }
-                        }
-                    }
-                    @Override
-                    public void onError(Throwable e) {
-                        XLog.e("请求数据错误：" + e);
-                        if (AppConfig.DEBUG) {
-                            builder.callback.onFail("  " + builder.url + "---" + builder.params.toString() + "---" + e.toString());
-                        } else {
-                            builder.callback.onFail(((NetError) e).getUserMsg());   //给用户提示的错误信息
-                        }
-                        super.onError(e);
-                    }
-                    @Override
-                    public void onComplete() {
-                        super.onComplete();
-                    }
-                });*/
-    }
+
 
     /**
      * 下载文件（app升级下载）

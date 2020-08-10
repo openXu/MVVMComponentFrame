@@ -28,12 +28,15 @@ public abstract class BaseOberver<T> implements Observer<T> {
     @Override
     public void onSubscribe(Disposable d) {
         this.disposable = d;
-     /*   if(null!=viewModel&&viewModel.mDisposable!=null) {
-            viewModel.mDisposable.add(disposable);
+        if(null!=viewModel&&viewModel.mCompositeDisposable!=null) {
+            /**
+             * Rx订阅时，添加disposable到容器中，当viewmodel销毁时取消订阅
+             */
+            viewModel.mCompositeDisposable.add(disposable);
             if (showDialog) {
                 viewModel.showDialog();
             }
-        }*/
+        }
     }
     @Override
     public void onError(Throwable e) {
@@ -46,13 +49,13 @@ public abstract class BaseOberver<T> implements Observer<T> {
 
     private void finish(){
         XLog.w("------小  取消订阅");
-//        disposable.dispose();
-        /*if(null!=viewModel&&viewModel.mDisposable!=null) {
-            viewModel.mDisposable.remove(disposable);
-            if(viewModel.mDisposable.size()<=0 && showDialog){   //当前页面没有其他正在进行的请求时
+        disposable.dispose();
+        if(null!=viewModel&&viewModel.mCompositeDisposable!=null) {
+            viewModel.mCompositeDisposable.remove(disposable);
+            if(viewModel.mCompositeDisposable.size()<=0 && showDialog){   //当前页面没有其他正在进行的请求时
                 viewModel.dismissDialog();
             }
-        }*/
+        }
     }
 
 }

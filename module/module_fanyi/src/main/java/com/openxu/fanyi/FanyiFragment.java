@@ -13,13 +13,13 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.openxu.core.base.XBaseFragment;
@@ -28,9 +28,8 @@ import com.openxu.core.utils.XLog;
 import com.openxu.core.utils.XMD5Utils;
 import com.openxu.core.utils.toasty.XToast;
 import com.openxu.fanyi.adapter.MyspinnerAdapter;
-import com.openxu.fanyi.bean.Fanyi;
+import com.openxu.fanyi.bean.FanyiResult;
 import com.openxu.fanyi.databinding.FanyiFragmentMainFanyiBinding;
-import com.openxu.pf.PfConstant;
 import com.openxu.pf.Pf;
 import com.openxu.xftts.VoicePlayerImpl;
 
@@ -110,6 +109,26 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
     }
     @Override
     public void registObserve() {
+
+        viewModel.fanyiData.observe(this, new Observer<FanyiResult>() {
+            @Override
+            public void onChanged(FanyiResult fanyiResult) {
+                if(fanyiResult == null || fanyiResult.getError_code()!=0 || !TextUtils.isEmpty(fanyiResult.getError_msg())){
+                    binding.tvYw.setText("翻译失败：" + fanyiResult.getError_msg());
+                }else if (fanyiResult.getTrans_result().size() > 0) {
+                    binding.tvYw.setText("译文");
+                    List<FanyiResult.Fanyi> fanyiList = fanyiResult.getTrans_result();
+                    String china = "";
+                    if(fanyiList.size()>1)
+                        for(FanyiResult.Fanyi fanyi : fanyiList)
+                            china += (fanyi.getDst()+"\n");
+                    else
+                        china = fanyiList.get(0).getDst();
+                    XLog.v( "翻译结果：" + china);
+                    binding.tvText.setText(china);
+                }
+            }
+        });
     }
     @Override
     public void initData() {
@@ -144,11 +163,7 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
             if (TextUtils.isEmpty(fromStr))
                 return true;
             /* 隐藏软键盘 */
-            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (inputMethodManager.isActive()) {
-                inputMethodManager.hideSoftInputFromWindow(
-                        v.getApplicationWindowToken(), 0);
-            }
+            hideSoftInputFromWindow();
 //				fanyi(fromStr);
             fanyi_new(fromStr);
             return true;
@@ -166,9 +181,7 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
             String fromStr = binding.etText.getText().toString().trim();
             if (TextUtils.isEmpty(fromStr))
                 return;
-            InputMethodManager imm = (InputMethodManager )v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm.isActive())
-                imm.hideSoftInputFromWindow(v.getApplicationWindowToken() , 0 );
+            hideSoftInputFromWindow();
 //			fanyi(fromStr);
             fanyi_new(fromStr);
         }else if(v.getId() == R.id.ll_voice){
@@ -180,7 +193,7 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
             if(isSport){
                 VoicePlayerImpl.getInstance(getActivity().getApplicationContext()).play(text);
             }else{
-                XToast.error("抱歉~目前不支持"+to_zh+"发音");
+                XToast.error("抱歉~目前不支持"+to_zh+"发音").show();
             }
         }else if(v.getId() == R.id.ll_copy){
             text = binding.tvText.getText().toString().trim();
@@ -194,9 +207,9 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
                 if (version >= 11) {
                     Method method = cmb.getClass().getMethod("setText",CharSequence.class);
                     method.invoke(cmb, text);
-                    XToast.success("已复制到剪切板");
+                    XToast.success("已复制到剪切板").show();
                 } else {
-                    XToast.error("您的系统不支持此功能");
+                    XToast.error("您的系统不支持此功能").show();
                 }
             } catch (Exception e) {
             }
@@ -250,7 +263,9 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
         });
     }
 
-
+    private String from = "";
+    private String to = "";
+    private String to_zh = "";
     /**
      * 百度翻译API服务全新升级至百度翻译开放云平台
      * 支持全球27个语种的高质量互译服务
@@ -298,23 +313,10 @@ public class FanyiFragment extends XBaseFragment<FanyiFragmentMainFanyiBinding, 
         params.put("q", str);
         params.put("from", from);
         params.put("to", to);
-        viewModel.fanyi(FanyiConstant.URL_BAIDU_FANYI_NEW, params);
+//        viewModel.fanyi(FanyiConstant.URL_BAIDU_FANYI_NEW, params);
+        viewModel.fanyi("api/trans/vip/translate", params);
 //        viewModel.fanyi(type, from, to, to_zh);
     }
-    private String from = "";
-    private String to = "";
-    private String to_zh = "";
 
-    private void showFanyi(List<Fanyi> fanyis) {
-        if (fanyis != null && fanyis.size() > 0) {
-            String china = "";
-            if(fanyis.size()>1)
-                for(Fanyi fanyi : fanyis)
-                    china += (fanyi.getDst()+"\n");
-            else
-                china = fanyis.get(0).getDst();
-            XLog.e( "翻译结果：" + china);
-            binding.tvText.setText(china);
-        }
-    }
+
 }

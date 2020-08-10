@@ -53,8 +53,8 @@ public class BaseInterceptor implements Interceptor {
         //根据请求类型改变url
         //http://114.115.144.251:8001/User_QueryPhonePrincipal?UserCode=nj&ApplicationID=4ccfccaf-9da0-11e7-840e-fa163ea287f1
         String url = request.url().toString();
-        XLog.e("baseUrl:"+ AppConfig.baseUrl);
-        XLog.e("请求数据Url:"+url);
+//        XLog.i("baseUrl:"+ AppConfig.baseUrl);
+//        XLog.i("请求数据Url:"+url);
         /*if (request.method().equals("GET")) {
             if(url.contains(fileDownloadUrl)){
                 XLog.w("get请求为文件下载");

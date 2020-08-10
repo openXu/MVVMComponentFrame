@@ -15,7 +15,7 @@ package com.openxu.core.http.callback;
  * //                    }
  * //                }
  */
-public abstract class ResponseCallback extends BaseCallback {
+public abstract class ResponseCallback<T> extends BaseCallback {
     private Class dataClass;
 
     public Class getDataClass() {
@@ -25,7 +25,8 @@ public abstract class ResponseCallback extends BaseCallback {
     public ResponseCallback(Class clazz) {
         dataClass = clazz;
     }
+    public ResponseCallback() {
+    }
 
-    public abstract void onSuccess(String msg, String result) throws Exception;
-//    public abstract void onSuccess(String msg, XResponse data) throws Exception;
+    public abstract void onSuccess(T result) throws Exception;
 }

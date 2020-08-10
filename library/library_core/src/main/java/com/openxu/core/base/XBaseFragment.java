@@ -12,6 +12,7 @@ import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -168,7 +169,9 @@ public abstract class XBaseFragment<V extends ViewDataBinding, VM extends XBaseV
             ((XBaseActivity) getActivity()).dismissProgressDialog();
         }
     }
-
+    public void hideSoftInputFromWindow() {
+        ((XBaseActivity)getActivity()).hideSoftInputFromWindow();
+    }
     public boolean onBackPressed() {
         return false;
     }

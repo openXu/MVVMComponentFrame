@@ -8,7 +8,11 @@ package com.openxu.core.http.data;
  *              如果项目业务接口有统一的数据返回格式，可参照FpcResponse在此封装，然后重写ParseDataFunction统一解析数据
  */
 public class XResponse<T> {
-
+    public XResponse(String result) {
+        this.result = result;
+    }
+    public XResponse() {
+    }
     String result;
     public String getResult() {
         return result;
@@ -33,15 +37,10 @@ public class XResponse<T> {
     private String resultNode;
     private int statusCode;
     private String message;
-    private String data;    //需要二次解析
-    private T datObj;       //解析之后最终对象
+    private T data;       //解析之后最终对象
 
-    public T getDatObj() {
-        return datObj;
-    }
-
-    public void setDatObj(T datObj) {
-        this.datObj = datObj;
+    public void setData(T data) {
+        this.data = data;
     }
 
     public String getResultNode() {
@@ -68,11 +67,4 @@ public class XResponse<T> {
         this.message = message;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
 }

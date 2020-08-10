@@ -61,7 +61,7 @@ Map<String, String> getConfigMap_along() {
             //Application初始化类，使用,分割
             applicationInitClass :"\"\"",
             //接口统一的基础链接
-            baseUrl           :"\"http://www.baidu.com\""
+            baseUrl           :"\"http://api.fanyi.baidu.com/\""
 
     ]
 }

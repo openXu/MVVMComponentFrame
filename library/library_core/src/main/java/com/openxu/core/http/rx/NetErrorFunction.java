@@ -18,9 +18,9 @@ import io.reactivex.functions.Function;
  * class: NetErrorFunction
  * Description: 错误处理Function
  */
-public class NetErrorFunction implements Function<Throwable, ObservableSource<XResponse>> {
+public class NetErrorFunction<T> implements Function<Throwable, ObservableSource<T>> {
     @Override
-    public ObservableSource<XResponse> apply(Throwable throwable) throws Exception {
+    public ObservableSource<T> apply(Throwable throwable) throws Exception {
         NetError error = NetErrorHandle.handleError(throwable);
         return Observable.error(error);
     }

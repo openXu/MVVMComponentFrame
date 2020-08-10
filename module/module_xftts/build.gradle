@@ -1,1 +1,9 @@
 apply from: "../module.gradle"
+
+android{
+    sourceSets {
+        main {
+            jniLibs.srcDirs "libs"
+        }
+    }
+}

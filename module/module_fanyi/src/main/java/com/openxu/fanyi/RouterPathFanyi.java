@@ -12,8 +12,8 @@ package com.openxu.fanyi;
  */
 public class RouterPathFanyi {
 
-    private static final String GROUP = "/module_fanyi/";
+    private static final String GROUP = "/module_chaxun/";
 
-    public static final String PAGE_FRAGMENT_FANYI = GROUP + "fanyi";
+    public static final String PAGE_FRAGMENT_CHAXUN = GROUP + "chaxun";
 
 }
