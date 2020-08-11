@@ -271,6 +271,7 @@ public class NetworkManager {
                             try {
                                 callback.onSuccess(response);
                             } catch (Exception e) {
+                                e.printStackTrace();
                                 XLog.e("：解析数据错误" + e);
                                 if (AppConfig.DEBUG) {
                                     XToast.error("  " + url + "---" + params.toString() + "---" + e.toString());

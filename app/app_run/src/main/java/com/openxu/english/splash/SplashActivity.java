@@ -1,14 +1,12 @@
 package com.openxu.english.splash;
 
 
-import android.content.BroadcastReceiver;
 import android.os.Build;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.openxu.base.DataBinderMapperImpl;
 import com.openxu.core.base.XBaseActivity;
 import com.openxu.core.utils.XBarUtils;
 import com.openxu.core.utils.XLog;

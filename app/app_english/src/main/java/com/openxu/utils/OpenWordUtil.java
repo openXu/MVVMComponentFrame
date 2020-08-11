@@ -9,9 +9,9 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.openxu.db.bean.OpenSent;
-import com.openxu.db.bean.zhongwen.Mean;
-import com.openxu.db.bean.zhongwen.Part;
-import com.openxu.db.bean.zhongwen.Symbol;
+import com.openxu.chaxun.bean.zhongwen.Mean;
+import com.openxu.chaxun.bean.zhongwen.Part;
+import com.openxu.chaxun.bean.zhongwen.Symbol;
 import com.openxu.ui.MyApplication;
 
 public class OpenWordUtil {

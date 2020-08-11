@@ -59,7 +59,7 @@ Map<String, String> getConfigMap_along() {
 //            baseUrl                    : "\"http://114.115.144.251:8085/\"",    //BaseUrl
             appFileRoot       : "\"OpenXu\"",   //app存储文件夹名
             //Application初始化类，使用,分割
-            applicationInitClass :"\"\"",
+            applicationInitClass :"\"com.openxu.db.DbInitLogic\"",
             //接口统一的基础链接
             baseUrl           :"\"http://api.fanyi.baidu.com/\""
 

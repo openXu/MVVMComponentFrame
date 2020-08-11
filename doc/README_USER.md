@@ -65,7 +65,26 @@ Map<String, String> getConfigMap_test() {
 ### XBaseFragment
 
 
-### 
+## 2.3 MVVM模式模板创建
+> 该模板用于方便创建基于MVVM模式的Activity、Fragment，会自动创建ViewModel及layout文件，并自动在**AndroidManifest.xml**中注册。<br/>
+> 需要注意的是，该模板默认包名为3级，如果在3级目录下创建，会自动创建**business**业务包，相关文件会生成在此目录下。<br/>
+> 如果选中>3级目录，则认为已经具备业务包，相关文件将会生成在最后一级目录中。<br/>
+> 当然，你也可以在配置时指定Activity和ViewModel的包名<br/>
+
+**导入模板**<br/>
+
+将a_templates文件夹下的**MVVMTemplates**文件夹整个复制到android-studio\plugins\android\lib\templates\activities\目录下，重启Android Studio即可
+
+**模板修改**<br/>
+> 如有必要，可根据需求修改模板（FreeMarker语法），一般情况不要擅自修改
+
+**创建Activity**
+
+对应包下->new->Activity->MVVM 模板
+
+![activity模板创建-1](a_image/activity模板创建-1.png)<br/>
+![activity模板创建-2](a_image/activity模板创建-2.png)
+
 
 ## 2.3 网络请求
 

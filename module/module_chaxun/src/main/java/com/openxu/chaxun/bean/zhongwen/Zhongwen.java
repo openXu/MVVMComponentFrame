@@ -1,12 +1,11 @@
 package com.openxu.chaxun.bean.zhongwen;
 
-import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class Zhongwen{
 	public String word_name;
-	public ArrayList<Symbol> symbols;
+	public List<Symbol> symbols;
 	public String sents;
 	
 }

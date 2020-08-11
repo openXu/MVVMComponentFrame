@@ -3,6 +3,7 @@ package com.openxu.view;
 import android.content.Context;
 import android.widget.TextView;
 
+import com.openxu.core.dialog.BaseDialog;
 import com.openxu.english.R;
 
 /**
@@ -13,27 +14,28 @@ import com.openxu.english.R;
  * Email: kenny.li@itotemdeveloper.com<br>
  * 加载框
  */
-public class CopyDBDialog extends ItotemBaseDialog {
+public class CopyDBDialog extends BaseDialog {
 
     private TextView tvShowText, upload_text;
 
     public CopyDBDialog(Context context) {
-        super(context, R.layout.dialog_dbcopy, R.style.ItotemTheme_Dialog_Loading);
+        super(context);
+    }
+
+    public CopyDBDialog(Context context, int style) {
+        super(context, style);
+    }
+
+
+    @Override
+    protected int getDialogLayout() {
+        return R.layout.dialog_dbcopy;
     }
 
     @Override
     protected void initView() {
         tvShowText = (TextView) findViewById(R.id.tvShowText);
         upload_text = (TextView) findViewById(R.id.upload_text);
-    }
-
-    @Override
-    protected void initData() {
-    }
-
-    @Override
-    protected void setListener() {
-
     }
 
     public void setShowText(int resId){

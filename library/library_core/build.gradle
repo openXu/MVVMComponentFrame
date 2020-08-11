@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
     //api 'com.android.support:appcompat-v7:28.0.0'
     /**AndroidX*/
     api rootProject.ext.libdependencies["appcompat"]
@@ -58,8 +58,11 @@ dependencies {
     //二维码
     api rootProject.ext.libdependencies["zxing"]
     api rootProject.ext.libdependencies["gson"]
+    api 'com.alibaba:fastjson:1.1.72.android'
     api rootProject.ext.libdependencies["glide"]
     api rootProject.ext.libdependencies["rxbus"]
+    //权限 AndPermission对国内厂商适配比较好
+    api rootProject.ext.libdependencies["AndPermission"]
 }
 
 //强制指定依赖版本，避免冲突

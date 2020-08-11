@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="MVVM 模板"
+    minApi="14"
+    minBuildApi="14"
+    description="创建MVVM模式的Activity和ViewModel，注意，请在工程包名根目录下创建">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+    <parameter
+        id="pageName"
+        name="业务名称"
+        type="string"
+        constraints="unique|nonempty"
+        default="Fpc"
+        help="请填写页面名，如填写Fpc，会自动生成FpcActivity、FpcViewModel等文件" />
+
+    <parameter
+        id="needActivity"
+        name="是否创建Activity"
+        type="boolean"
+        default="true"
+        help="是否创建Activity?" />
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        visibility="needActivity"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
+
+    <parameter
+        id="activityClass"
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${pageName}Activity"
+        default="FpcActivity"
+        visibility="needActivity"
+        help="请填写Actiivty名称" />
+
+    <parameter
+        id="needFragment"
+        name="是否创建Fragment"
+        type="boolean"
+        suggest="!needActivity"
+        visibility="!needActivity"
+        default="false"
+        help="是否创建Activity?" />
+    <parameter
+        id="fragmentClass"
+        name="Fragment Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${pageName}Fragment"
+        default="FpcFragment"
+        visibility="needFragment"
+        help="请填写Fragment名称" />
+
+    <parameter
+        id="vPackageName"
+        name="UI Package Name"
+        type="string"
+        suggest=""
+        visibility="needActivity|needFragment"
+        help="Activity或者Fragment 将被输出到此包下,如填写activity，输出目录为：当前目录.activity"/>
+
+    <parameter
+        id="needLayout"
+        name="Generate Layout"
+        type="boolean"
+        default="true"
+        visibility="needActivity|needFragment"
+        help="是否需要layout文件?" />
+    <parameter
+        id="needVM"
+        name="Generate ViewModel"
+        type="boolean"
+        default="true"
+        help="是否需要生成 ViewModel ?" />
+    <parameter
+        id="VMPackageName"
+        name="Model Package Name"
+        type="string"
+        suggest=""
+        visibility="needVM"
+        help="ViewModel 将被输出到此包下,如填写viewmodel，输出目录为：当前目录.viewmodel"/>
+    <parameter
+        id="VMClass"
+        name="ViewModel Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${needActivity?string(activityClass, fragmentClass)}VM"
+        visibility="needVM"
+        help="请填写ViewModel名称" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+
+</template>
