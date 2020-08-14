@@ -73,7 +73,7 @@ import io.reactivex.functions.Consumer;
 public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel{
 
     //一个一次性容器，可以容纳多个其他一次性物品，并提供O（1）添加和移除的复杂性。
-    public CompositeDisposable mCompositeDisposable;
+    public CompositeDisposable mCompositeDisposable = new CompositeDisposable();;
     public MutableLiveData<Boolean> listNetError = new MutableLiveData<>();   //列表页网络请求失败
 
     public XBaseViewModel(@NonNull Application application) {
@@ -149,7 +149,7 @@ public class XBaseViewModel extends AndroidViewModel implements IBaseViewModel{
     @Override
     protected void onCleared() {
         super.onCleared();
-        if(mCompositeDisposable==null)
+        if(mCompositeDisposable!=null)
             mCompositeDisposable.clear();
         XLog.i("viewmodel释放资源，终止网络请求");
     }

@@ -7,9 +7,28 @@ include':module:module_db',
         ':module:module_fanyi',
         ':module:module_chaxun'
 
-
 include ':app:app_vedio',
         ':app:app_english',
         ':app:app_run',
         ':app:app_test',
-        ':app:app_singlemd'
+        ':app:app_single'
+
+/*
+//包含库工程
+include ':ijkplayer'
+project (':ijkplayer').projectDir = new File('../ijkplayer/')
+include ':ijkplayer:ijkplayer-arm64'
+include ':ijkplayer:ijkplayer-armv5'
+include ':ijkplayer:ijkplayer-armv7a'
+include ':ijkplayer:ijkplayer-java'
+include ':ijkplayer:ijkplayer-x86'
+include ':ijkplayer:ijkplayer-x86_64'
+include ':ijkplayer:ijkplayer-example'
+*/
+
+
+
+include ':ijkplayer:ijkplayer-armv7a'
+include ':ijkplayer:ijkplayer-java'
+//include ':ijkplayer:ijkplayer-example'
+

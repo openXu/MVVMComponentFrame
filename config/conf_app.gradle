@@ -11,7 +11,7 @@ ext {
     //TYPE_VEDIO       视频
 
     //当前运行的app类型 详情请查看：FpcLibsProject\library\library_core\src\main\java\com\fpc\core\config\AppTypes.java
-    appTypeStr = "TYPE_ALONG"
+    appTypeStr = "TYPE_VEDIO"
     applicationId = getConfigMap(appTypeStr).get("applicationId")
     versionCode = getConfigMap(appTypeStr).get("versionCode")
     versionName = getConfigMap(appTypeStr).get("versionName")

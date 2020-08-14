@@ -135,7 +135,7 @@ public class WebViewFragment extends XBaseFragment<FragmentWebviewBinding, XBase
         cookieManager.setAcceptCookie(true);
 
 //        binding.webview.loadUrl(url);
-        binding.webview.loadUrl("file:///android_asset/test.html");
+        binding.webview.loadUrl("file:///android_asset/test1.html");
 
     }
 

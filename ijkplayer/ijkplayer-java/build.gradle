@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+
+android {
+    rootProject.ext.setAndroidConfig android
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+apply from: new File(rootProject.projectDir, "ijkplayer/tools/gradle-on-demand.gradle");
