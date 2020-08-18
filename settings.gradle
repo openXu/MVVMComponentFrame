@@ -5,7 +5,9 @@ include':module:module_db',
         ':module:module_pf',
         ':module:module_xftts',    //讯飞语音合成模块
         ':module:module_fanyi',
-        ':module:module_chaxun'
+        ':module:module_chaxun',
+        ':module:module_login'
+
 
 include ':app:app_vedio',
         ':app:app_english',

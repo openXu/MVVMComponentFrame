@@ -1,8 +1,9 @@
 
 # 1. 准备工作
 
-
-
+由于框架设计的特殊性，本框架没有打包上传到远程仓库，拉取源码到本地直接在框架上开发项目更加方便自友。
+  
+Star并Fork项目，然后拉取项目到本地，使用Android Studio打开项目即可开发。
 
 # 2. 快速上手
 
@@ -58,16 +59,168 @@ Map<String, String> getConfigMap_test() {
 }
 ```
 
-## 2.2 第一个页面
+## 2.2 页面
 
-### XBaseActivity
+页面默认统一使用自封装的`TitleLayout`，基类中已经对其做沉侵式处理，当然你也可以使用其他标题栏。该部分主要关心三个内容，xml布局，Activity/Fragment处理页面逻辑调用viewmodel请求数据，viewmodel编写数据请求代码通知页面刷新。
 
-### XBaseFragment
+### XBaseActivity\XBaseFragment
+
+页面可继承XBaseActivity或者XBaseFragment，其区别就是XBaseActivity需要在清单文件注册，而XBaseFragment不需要。
+
+```Java
+//注册路由路径
+@Route(path = RouterPathLogin.PAGE_LOGIN)
+//继承XBaseActivity，第一个泛型为布局生成的binding类，第二个为该页面的ViewModel类，如果页面没有数据处理需求不需要ViewModel，可以传入XBaseViewModel
+public class LoginActivity extends XBaseActivity<LoginActivityLoginBinding,  LoginActivityVM > {
+    //返回布局id
+    @Override
+    public int getContentView(Bundle savedInstanceState) {
+        return R.layout.login_activity_login;
+    }
+    @Override
+    public void initView() {
+        // 控件初始化，设置事件
+        binding.tvLogin.setOnClickListener(v->{
+            //调用viewmodel的登录方法
+            viewModel.login(binding.etName.getText().toString().trim(), binding.etPsw.getText().toString().trim());
+        });
+        binding.tvRegist.setOnClickListener(v->{
+            //路由到注册页，由于注册页是继承XBaseFragment，使用XFragmentActivity提供的路由方法
+            XFragmentActivity.start(LoginActivity.this,
+                    ARouter.getInstance().build(RouterPathLogin.PAGE_REGIST)
+                            .withString("username", binding.etName.getText().toString().trim()));
+        });
+    }
+    @Override
+    public void registObserve() {
+        // 为ViewModel中LiveData类型数据注册监听，当数据变化时更新UI (通常通过binding.setXXX)
+        viewModel.userData.observe(this, user -> {
+            XToast.success("恭喜"+user.getName()+"登成功").show();
+            /**
+             * 路由到主页面
+             * 注意：该模块将登录、注册抽取为单独模块，是假设有多个项目共用登陆注册逻辑，但是每个项目的主页面不同，该怎么路由到各个项目的主页面去呢？
+             * 可以将主页的路由清单放到library_core中，这样就可以在这里引用了，每个项目主页面虽然注册的路由路径一样，但是只能同时运行其中一个
+             */
+//            ARouter.getInstance().build(RouterPathCore.PAGE_MAIN).navigation();
+        });
+    }
+    @Override
+    public void initData() {
+        // 通常调用viewModel获取数据
+//        viewModel.init();
+    }
+}
+
+
+@Route(path = RouterPathLogin.PAGE_REGIST)
+public class RegistFragment extends XBaseFragment<LoginFragmentRegistBinding, RegistFragmentVM> {
+    @Override
+    public int getContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return R.layout.login_fragment_regist;
+    }
+    @Override
+    public void initView() {
+        // 控件初始化，设置事件
+    }
+    @Override
+    public void registObserve() {
+        // 为ViewModel中LiveData类型数据注册监听，当数据变化时更新UI (通常通过binding.setXXX)
+    }
+    @Override
+    public void initData() {
+        // 通常调用viewModel获取数据
+    }
+}
+```
+
+### XBaseViewModel
+
+ViewModel负责数据请求，并通知页面刷新
+
+```Java
+public class LoginActivityVM extends XBaseViewModel {
+    public MutableLiveData<User> userData = new MutableLiveData<>();
+	public LoginActivityVM(@NonNull Application application) {
+        super(application);
+    }
+    //登录
+    public void login(String name, String pwd){
+        NetworkManager.getInstance().build()
+                //必须
+                .viewModel(this)   //ViewModel对象
+                .url(LoginService.loginUrl)          //url，绝对路径或者相对路径都行，如果设置相对路径，请在conf_app.gradle中配置baseUrl
+                .putParam("name", name)
+                .putParam("pwd", pwd)
+//                .putParams(map)
+                //可选
+                .showDialog(true)   //是否显示进度条，默认true
+                .doGet(new ResponseCallback<User>(User.class) {
+                    @Override
+                    public void onSuccess(User result){
+                        XLog.d("请求数据结果："+result);
+                        //将结果设置给livedata，通知ui刷新
+                        userData.setValue(result);
+                    }
+                    @Override
+                    public void onFail(String message) {
+                        //错误统一Toast处理
+                        super.onFail(message);
+                    }
+                });
+    }
+}
+```
+
+### XBaseListActivity/XBaseListFragment
+
+如果有需要，可以使用统一的list列表页面封装，可继承XBaseListActivity/XBaseListFragment
+
+```Java
+public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding, XBaseViewModel, String> {
+    @Override
+    protected void initListPageParams() {
+        titleLayout.setTextcenter("列表页测试").show();  //设置标题
+        itemLayout = R.layout.main_test_item;        //item布局id
+        itemClickId.add(R.id.tv_item);
+        binding.refreshLayout.setEnableRefresh(false);  //是否允许下拉刷新
+        binding.refreshLayout.setEnableLoadMore(false);  //是否允许上拉加载更多
+        //添加分割线
+        binding.recyclerView.addItemDecoration(new CommandItemDecoration(mContext, LinearLayoutManager.VERTICAL,
+                getResources().getColor(R.color.line_bg_color),
+                (int)(getResources().getDimension(R.dimen.line_height))));
+    }
+    @Override
+    protected void getListData() {
+        //按道理此处应该调用viewmodel的方法请求数据，这里使用静态数据模拟
+        List<String> data = new ArrayList<>();
+        data.add("测试1");
+        data.add("测试2");
+        //刷新页面
+        responseData(data);
+    }
+    /**条目点击*/
+    @Override
+    protected void onViewClick(int id, String data, int position) {
+        super.onViewClick(id, data, position);
+    }
+    @Override
+    protected void onItemClick(String data, int position) {
+    }
+    
+    @Override
+    public void registObserve() {
+    }
+}
+
+```
+
+### 路由
+
 
 
 ## 2.3 MVVM模式模板创建
 > 该模板用于方便创建基于MVVM模式的Activity、Fragment，会自动创建ViewModel及layout文件，并自动在**AndroidManifest.xml**中注册。<br/>
-> 需要注意的是，该模板默认包名为3级，如果在3级目录下创建，会自动创建**business**业务包，相关文件会生成在此目录下。<br/>
+> 需要注意的是，该模板默认包名为3级，如果在3级目录下创建，会自动创建**business**业务包，相关文件会生成在此目录下，你也可以修改业务包名。<br/>
 > 如果选中>3级目录，则认为已经具备业务包，相关文件将会生成在最后一级目录中。<br/>
 > 当然，你也可以在配置时指定Activity和ViewModel的包名<br/>
 
@@ -122,6 +275,9 @@ NetworkManager.getInstance().build()
 ```
 
 ### post请求
+
+
+### 异常处理
 
 ## 工具类
 
@@ -200,3 +356,6 @@ ext {
     ...
 ```
 
+## 3.2 项目
+
+`app`目录下都是`com.android.application`独立的项目，可以直接运行

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--data节点配置class属性，设置Binding全类名-->
+    <data>
+        <!--1、申明基本类型变量，使用：binding.setName()-->
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/edit_style_def"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="请输入用户名/手机号"/>
+            <EditText
+                android:id="@+id/et_psw"
+                style="@style/edit_style_def"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入密码"
+                android:maxLength="20"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"/>
+            <TextView
+                    android:id="@+id/tv_login"
+                style="@style/btn_green"
+                android:text="登录"/>
+            <TextView
+                    android:id="@+id/tv_regist"
+                style="@style/btn_red"
+                android:text="注册"
+                android:layout_marginTop="@dimen/line_space"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
+

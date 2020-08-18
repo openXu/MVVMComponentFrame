@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.openxu.login">
+
+	<application>
+
+		<activity android:name="com.openxu.login.login.LoginActivity" />
+
+	</application>
+</manifest>

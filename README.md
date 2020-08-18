@@ -3,11 +3,29 @@
 
 [🔜 快速开始](https://github.com/openXu/MVVMComponentFrame/blob/master/doc/README_USER.md)
 
+[🔜 Jetpack\AndroidX相关知识看这里](https://openxu.blog.csdn.net/article/details/108060278)
+
 ## 1. 框架优势
 
 - 基于AndroidX
 
-AndroidX是Android发展的趋势，google已经退出几年了，很多公司已经将项目迁移到AndroidX
+本框架基于AndroidX，以google推荐DataBinding+LiveData+ViewModel为基础搭建的MVVM模式快速开发框架，Lifecycle管理组件生命周期，这也是Android框架的发展趋势，现在将自己的项目移植到AndroidX为时不晚。
+
+- 组件化
+
+支持项目业务模块化开发，模块独立运行，使项目结构更加清晰易维护
+
+- 快速开发
+
+框架封装了Android项目开发最常用的类库，网络请求、权限、常用工具类、全局错误处理等等，开箱即用，使我们只需要关注项目业务开发
+
+- 最流行的框架
+
+框架中使用Retrofit+OkHttp+RxJava的组合实现网络请求，统一错误处理、并封装了统一的接口，实现常用get、post、文件下载上传的操作。Glide图片加载，
+
+- 基类封装
+
+针对MVVM模式封装的XBaseActivity、XBaseFragment、XBaseViewModel和List相关的XBaseListActivity、XBaseListFragment。提供模板创建，一键生成layou.xml、Activity\Fragment、ViewModel，并自动完成Activity清单文件注册。使用统一的XFragmentActivity承载Fragment，项目中页面都可以继承XBaseFragment实现免AndroidManifest.xml注册，多样的路由封装。
 
 
 ## 2. 框架概述
@@ -140,16 +158,6 @@ android {
 //            applicationId "com.fzy.hbmjc"
             dimension "version"
             println "构建多渠道配置--机场"
-        }
-        taiwen {
-//            applicationId "com.fzy.hbmjc"
-            dimension "version"
-            println "构建多渠道配置--泰文"
-        }
-        crert {
-//            applicationId "com.fzy.hbmjc"
-            dimension "version"
-            println "构建多渠道配置--科锐"
         }
     }
 }

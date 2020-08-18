@@ -9,9 +9,7 @@ github地址:https://github.com/yixia/VitamioBundle (版本4.2.2)
 
 # ijkplayer
 
-ijkplayer是B站开源的一个基于FFmpeg的轻量级Android/iOS视频播放器。FFmpeg的是全球领先的多媒体框架，能够解码，编码， 转码，复用，解复用，流，过滤器和播放大部分的视频格式。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多code都是从头开发的。
-
-https://github.com/Bilibili/ijkplayer
+[ijkplayer](https://github.com/bilibili/ijkplayer)是B站开源的一个基于FFmpeg的轻量级Android/iOS视频播放器。FFmpeg的是全球领先的多媒体框架，能够解码，编码， 转码，复用，解复用，流，过滤器和播放大部分的视频格式。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多code都是从头开发的。
 
 android版本最低minSdkVersion 21
 
@@ -80,23 +78,16 @@ root@Node3-fzy-> /etc/init.d/networking restart
 root@Node3-fzy-> cd config/
 #### module-default.sh是默认配置，编译出来的so文件会比较大，可以使用修改了的module-little.sh
 root@Node3-fzy-> vim module-lite.sh
-    # 1.add by openxu for rtsp
+    # 1.add by openxu for rtsp              避免出现缺少ID为8的codec的错误
     export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-decoder=mjpeg"
-    # 2. add by openxu for rtsp 2 lines
     export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=mjpeg"
-    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=rtsp"
+
+    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=rtsp"   打开rtsp音视频分离器
+    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=sdp"
+    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=rtp"
     # 3.update enable by openxu for rtsp
-    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-protocol=rtp"
-下面的没试过
-        # 支持rtsp流
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-protocol=rtp"
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-protocol=tcp"
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=rtsp"
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=sdp"
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=rtp"
-        # 支持mpeg4解码
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-decoder=mpeg4"
-        export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-demuxer=mpeg4"
+    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-protocol=rtp"   打开rtsp协议
+    export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-protocol=tcp"
 
 #### 5. 指定配置为module-lite.sh
 root@Node3-fzy-> rm module.sh
