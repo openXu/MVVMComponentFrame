@@ -16,7 +16,13 @@ import com.openxu.vedio.R;
 import com.openxu.vedio.databinding.ActivityMediaplayerBinding;
 import com.openxu.vedio.databinding.ActivityVedioviewBinding;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MediaPlayerActivity extends XBaseActivity<ActivityMediaplayerBinding, XBaseViewModel> {
     private ImageView mStartAndStop;
@@ -31,6 +37,7 @@ public class MediaPlayerActivity extends XBaseActivity<ActivityMediaplayerBindin
 
     @Override
     public void initView() {
+
         mMediaPlayer = new MediaPlayer();
         mSurfaceHolder = binding.surfaceview.getHolder();
         mSurfaceHolder.addCallback(new SurfaceHolder.Callback() {
@@ -117,5 +124,30 @@ public class MediaPlayerActivity extends XBaseActivity<ActivityMediaplayerBindin
             mMediaPlayer.release();
             mMediaPlayer = null;
         }
+
+
+
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+
+        List<String> list = new ArrayList<>();
+        list.add("11");
+        list.add("2");
+        EventBus.getDefault().post(list);
+        EventBus.getDefault().postSticky(list);
+
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(List<String> event) {
+        XLog.i("收到消息："+event);
     }
 }

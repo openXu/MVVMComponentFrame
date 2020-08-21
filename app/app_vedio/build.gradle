@@ -1,6 +1,5 @@
 apply from: '../app.gradle'
-//android {
-//}
+
 dependencies {
 //    implementation rootProject.ext.dependencies["nineoldandroids"]
 //    implementation 'org.bytedeco:javacv-platform:1.5.3'
@@ -19,6 +18,9 @@ dependencies {
 
     implementation project(":ijkplayer:ijkplayer-java")
     implementation project(":ijkplayer:ijkplayer-armv7a")
+
+    implementation "org.greenrobot:eventbus:3.2.0"
+
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
 }

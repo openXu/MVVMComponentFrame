@@ -15,8 +15,13 @@ import com.openxu.core.base.XBaseListActivity;
 import com.openxu.core.base.XBaseViewModel;
 import com.openxu.core.base.adapter.CommandItemDecoration;
 import com.openxu.core.databinding.CoreActivityBaseListBinding;
+import com.openxu.core.utils.XLog;
 import com.openxu.vedio.ui.MediaPlayerActivity;
 import com.openxu.vedio.ui.VedioViewActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,19 +30,7 @@ import java.util.List;
 public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding, XBaseViewModel, String> {
 
 
-    Handler subHandler;
 
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what){
-                case 1:
-                    Log.w("handler", "主线程创建Handler收到消息："+msg.obj);
-                    break;
-            }
-        }
-    };
 
     @Override
     protected void initListPageParams() {
@@ -52,23 +45,9 @@ public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding,
 
     }
 
-    ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
     @Override
     protected void getListData() {
-        for(int i = 1; i<=5; i++){
-            new Thread(() -> {
-                threadLocal.set(Thread.currentThread().getName());
-                System.out.println(threadLocal.get());
-            }, "线程"+i).start();
-        }
-
-
-
-
-
-
-
         List<String> data = new ArrayList<>();
         data.add("MediaPlayer");
         data.add("VedioView");
@@ -79,53 +58,15 @@ public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding,
 
         //https://github.com/yixia/VitamioBundle
         responseData(data);
-
-        new Thread(() -> {
-            //1：Looper.prepare()
-            Looper.prepare();
-            subHandler = new Handler(){
-                @Override
-                public void handleMessage(@NonNull Message msg) {
-                    super.handleMessage(msg);
-                    switch (msg.what){
-                        case 1:
-                            Log.w("handler", "子线程创建Handler收到消息："+msg.obj);
-                            break;
-                    }
-                }
-            };
-            //2：Looper.loop()
-            Looper.loop();
-        }).start();
-
     }
 
     @Override
     protected void onViewClick(int id, String data, int position) {
         super.onViewClick(id, data, position);
         if(position==0){
+            startActivity(new Intent(this, MediaPlayerActivity.class));
 
-            new Thread(() -> {
-                Message msg = handler.obtainMessage();
-                msg.what = 1;
-                msg.obj = "这是子线程发送的消息";
-                handler.sendMessage(msg);
-            }).start();
-            //startActivity(new Intent(this, MediaPlayerActivity.class));
         }else if(position==1){
-
-
-            //new Message对象（但是获取消息的首选方法是调用Message.obtain())
-            Message msg1 = new Message();
-            //从全局池返回新的消息实例，避免在许多情况下分配新对象。
-            Message msg2 = Message.obtain();
-            //
-            Message msg3 = subHandler.obtainMessage();
-            msg3.what = 1;
-            msg3.obj = "这是子线程发送的消息";
-            subHandler.sendMessage(msg3);
-
-
             startActivity(new Intent(this, VedioViewActivity.class));
         }else if(position==2){
             /*FragmentActivity.start(this,
@@ -146,8 +87,27 @@ public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding,
     protected void onItemClick(String data, int position) {
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(List<String> event) {
+        XLog.d("收到消息："+event);
+    }
     @Override
     public void registObserve() {
 

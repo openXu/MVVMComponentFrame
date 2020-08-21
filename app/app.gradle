@@ -97,6 +97,7 @@ dependencies {
     implementation project(':library:library_frame')
     //每个组件中依赖阿里路由编译框架
     annotationProcessor rootProject.ext.libdependencies["arouter-compiler"]
+    annotationProcessor rootProject.ext.libdependencies["eventbus-annotation"]
 }
 
 

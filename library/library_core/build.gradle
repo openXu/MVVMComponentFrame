@@ -61,8 +61,11 @@ dependencies {
     api 'com.alibaba:fastjson:1.1.72.android'
     api rootProject.ext.libdependencies["glide"]
     api rootProject.ext.libdependencies["rxbus"]
+    api rootProject.ext.libdependencies["eventbus"]
+    annotationProcessor rootProject.ext.libdependencies["eventbus-annotation"]
     //权限 AndPermission对国内厂商适配比较好
     api rootProject.ext.libdependencies["AndPermission"]
+
 }
 
 //强制指定依赖版本，避免冲突
