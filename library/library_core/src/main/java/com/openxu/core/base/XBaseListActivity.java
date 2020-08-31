@@ -140,7 +140,7 @@ public abstract class XBaseListActivity<V extends ViewDataBinding, VM extends XB
     protected void onViewClick(int id, D data,int position){}
 
     /**重写此方法，调用viewModel实现数据请求*/
-    protected abstract void getListData();
+    protected abstract void getListData() ;
 
     /**进入界面时首次获取数据*/
     @Override

@@ -1,13 +1,9 @@
 package com.openxu.vedio;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import dalvik.system.PathClassLoader;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.openxu.core.base.XFragmentActivity;
@@ -15,6 +11,7 @@ import com.openxu.core.base.XBaseListActivity;
 import com.openxu.core.base.XBaseViewModel;
 import com.openxu.core.base.adapter.CommandItemDecoration;
 import com.openxu.core.databinding.CoreActivityBaseListBinding;
+import com.openxu.core.utils.hook.FixDexUtil;
 import com.openxu.core.utils.XLog;
 import com.openxu.vedio.ui.MediaPlayerActivity;
 import com.openxu.vedio.ui.VedioViewActivity;
@@ -48,6 +45,16 @@ public class MainActivity extends XBaseListActivity<CoreActivityBaseListBinding,
 
     @Override
     protected void getListData() {
+
+        XLog.w("activity.getClassLoder="+(getClassLoader() == getApplicationContext().getClassLoader()));
+        try {
+            XLog.w("activity.getClassLoder="+(getClass()==getClassLoader().loadClass("com.openxu.vedio.MainActivity")));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        FixDexUtil.loadFixedDex(this);
         List<String> data = new ArrayList<>();
         data.add("MediaPlayer");
         data.add("VedioView");
